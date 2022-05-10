@@ -13,9 +13,11 @@ namespace Exercise {
 
 
         //引数付きコンストラクタ
-        public Song(string Title, string ArtistName, int Length)
+        public Song(string title, string artistname, int length)
         {
-
+            Title = title;
+            ArtistName = artistname;
+            Length = length;
         }
     }
 }
