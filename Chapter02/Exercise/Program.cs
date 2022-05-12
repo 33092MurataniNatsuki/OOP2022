@@ -32,7 +32,7 @@ namespace Exercise {
         }
 
         //2.1.4
-        private static void PrintSongs(Song[] songs)
+        private static void PrintSongs(IEnumerable<Song> songs)
         {
             foreach (var song in songs)
             {
