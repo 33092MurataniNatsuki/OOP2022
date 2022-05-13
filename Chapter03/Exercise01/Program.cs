@@ -13,8 +13,8 @@ namespace Exercise01 {
             Exercise1_1(numbers);
             Console.WriteLine("-----------------");
 
-            //Exercise1_2(numbers);
-            //Console.WriteLine("-----------------");
+            Exercise1_2(numbers);
+            Console.WriteLine("-----------------");
         }
 
         private static void Exercise1_1(List<int> numbers)
@@ -28,6 +28,11 @@ namespace Exercise01 {
                 Console.WriteLine("存在していません");
             }
         }
-        
+
+        private static void Exercise1_2(List<int> numbers)
+        {
+            numbers.ForEach(n => Console.WriteLine(n / 2.0));
+        }
+
     }
 }
