@@ -41,6 +41,7 @@ namespace Exercise01 {
 
         private static void Exercise1_3(List<int> numbers)
         {
+            int count = numbers.Count(n => n % 2 == 0);
             foreach (var n in numbers.Where(n => n >= 50))
             {
                 Console.WriteLine(n);
