@@ -45,12 +45,17 @@ namespace Exercise02 {
 
         private static void Exercise2_3(List<string> names)
         {
-            throw new NotImplementedException();
+            string[] selected = names.Where(s => s.Contains('o')).ToArray(); //配列として抽出
+
+            foreach (var name in selected)
+            {
+                Console.WriteLine(name);
+            }
         }
 
         private static void Exercise2_4(List<string> names)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
