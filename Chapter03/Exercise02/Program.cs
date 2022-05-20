@@ -55,7 +55,19 @@ namespace Exercise02 {
 
         private static void Exercise2_4(List<string> names)
         {
-            
+            //var selected = names.Where(s => s.StartsWith("B")).Select(s => s.Length + ":" + s);
+
+            //foreach (var name in selected)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+            var selected = names.Where(s => s.StartsWith("B")).Select(s => new { s.Length, s });
+
+            foreach (var name in selected)
+            {
+                Console.WriteLine(name.Length + name.s);
+            }
         }
     }
 }
