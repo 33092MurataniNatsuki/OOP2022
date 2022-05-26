@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise02 {
+namespace Exercise03 {
     class Program {
         static void Main(string[] args) {
-            var str = Console.ReadLine();
+            var text = "Jackdaws love my big sphinx of quartz";
 
-            int num;
-            if (int.TryParse(str,out num)) {
-                Console.WriteLine(num.ToString("#,0"));
-            }
+            
         }
     }
 }
