@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 namespace Exercise02 {
     class Program {
         static void Main(string[] args) {
-            var str = Console.ReadLine();
+            var line = Console.ReadLine(); //数値　数字
 
-            int num;
-            if (int.TryParse(str,out num)) {
-                Console.WriteLine(num.ToString("#,0"));
+            int num; 
+
+            //p.126
+            if (int.TryParse(line, out num)) {
+                //p.154.155
+                Console.WriteLine("{0:#,#}",num); //整数への変換成功
+                //Console.WriteLine(num.ToString("#,0"));
+            } else {
+                Console.WriteLine("数値文字列ではありません"); //変換失敗
             }
         }
     }
