@@ -10,6 +10,8 @@ namespace Exercise04 {
             var line = "Novelist=谷崎潤一郎;BestWork=春琴抄;Born=1886";
             var value = "Novelist=";
             var startIndex = line.IndexOf("Novelist=") + value.Length;
+            var endIndex = line.IndexOf(",", startIndex);
+            var bestWork = line.Substring(startIndex, endIndex - startIndex);
         }
 
         static string ToJapanese(string key) {

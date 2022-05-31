@@ -40,17 +40,17 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_4(string text) {
-            text.Split(' ').Where(word => word.Length <= 4).ToList().ForEach(word => Console.WriteLine());
-            //foreach (var arr in text.Split(' ').Where(word => word.Length <= 4)) {
-            //    Console.WriteLine(arr);
-            //}
+            //text.Split(' ').Where(word => word.Length <= 4).ToList().ForEach(word => Console.WriteLine());
+            foreach (var arr in text.Split(' ').Where(word => word.Length <= 4)) {
+                Console.WriteLine(arr);
+            }
         }
 
         private static void Exercise3_5(string text) {
             var array = text.Split(' ').ToArray();
             if (array.Length > 0) {
                 var sb = new StringBuilder(array[0]);
-                foreach (var word in array.Skip(1)) {                    
+                foreach (var word in array.Skip(1)) {
                     sb.Append(' ');
                     sb.Append(word);
                 }
