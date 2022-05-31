@@ -30,11 +30,19 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(int[] numbers) {
+            foreach (var n in numbers.Skip(numbers.Length - 2)) {
+                Console.WriteLine(n);
+            }
 
-            var last = numbers.Last();
-            int result = numbers.Last(n => n < last);
-            Console.WriteLine(result);
-            Console.WriteLine(last);
+            //for (int i = numbers.Length -2; i < numbers.Length; i++) {
+
+            //    Console.WriteLine(numbers[i]);
+            //}
+
+            //var last = numbers.Last();
+            //int result = numbers.Last(n => n < last);
+            //Console.WriteLine(result);
+            //Console.WriteLine(last);
         }
 
         private static void Exercise1_3(int[] numbers) {
@@ -45,7 +53,10 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
-            
+            var num = numbers.OrderBy(x => x);
+            for (int i = 0; i < 3; i++) {
+
+            }
         }
 
         private static void Exercise1_5(int[] numbers) {
