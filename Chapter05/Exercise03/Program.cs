@@ -25,8 +25,8 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            int count = text.Count(n => n == ' ');
-            Console.WriteLine(count);
+            int count = text.Count(c => c == ' ');
+            Console.WriteLine("空白数:{0}", count);
         }
 
         private static void Exercise3_2(string text) {
@@ -35,15 +35,36 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_3(string text) {
-            
+            int count = text.Split(' ').Length;
+            Console.WriteLine("単語数:{0}", count);
         }
 
         private static void Exercise3_4(string text) {
-
+            text.Split(' ').Where(word => word.Length <= 4).ToList().ForEach(word => Console.WriteLine());
+            //foreach (var arr in text.Split(' ').Where(word => word.Length <= 4)) {
+            //    Console.WriteLine(arr);
+            //}
         }
 
         private static void Exercise3_5(string text) {
+            var array = text.Split(' ').ToArray();
+            if (array.Length > 0) {
+                var sb = new StringBuilder(array[0]);
+                foreach (var word in array.Skip(1)) {                    
+                    sb.Append(' ');
+                    sb.Append(word);
+                }
+                var str = sb.ToString();
+                Console.WriteLine(str);
+            }
 
+            //string[] words = text.Split(' ');
+            //var sb = new StringBuilder();
+            //foreach (var word in words) {
+            //    sb.Append(" " + word);
+            //}
+            //var tx = sb.ToString();
+            //Console.WriteLine(tx);
         }
     }
 }
