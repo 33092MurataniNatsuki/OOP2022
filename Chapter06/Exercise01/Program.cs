@@ -34,6 +34,7 @@ namespace Exercise01 {
                 Console.WriteLine(n);
             }
 
+            #region
             //for (int i = numbers.Length -2; i < numbers.Length; i++) {
 
             //    Console.WriteLine(numbers[i]);
@@ -43,6 +44,7 @@ namespace Exercise01 {
             //int result = numbers.Last(n => n < last);
             //Console.WriteLine(result);
             //Console.WriteLine(last);
+            #endregion
         }
 
         private static void Exercise1_3(int[] numbers) {
@@ -53,12 +55,14 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
-            var num = numbers.OrderBy(x => x);
-            
+            foreach (var n in numbers.OrderBy(x => x).Where(n => n > 0).Take(3)) {
+                Console.WriteLine(n);
+            }
         }
 
         private static void Exercise1_5(int[] numbers) {
-
+            var results = numbers.Distinct().Where(n => n > 10).Count();
+            Console.WriteLine(results);
         }
 
     }
