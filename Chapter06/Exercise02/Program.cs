@@ -76,13 +76,15 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_6(List<Book> books) {
-            foreach (var s in books.Where(s => s.Pages >= 400).OrderByDescending(p => p.Price)){
+            var results = books.Where(s => s.Pages >= 400).OrderByDescending(p => p.Price);
+            foreach (var s in results){
                 Console.WriteLine(s.Title+" "+s.Price);
             }
         }
 
         private static void Exercise2_7(List<Book> books) {
-            foreach (var s in books.Where(s => s.Title.Contains("C#") && s.Pages <= 500)) {
+            var results = books.Where(s => s.Title.Contains("C#") && s.Pages <= 500);
+            foreach (var s in results) {
                 Console.WriteLine(s.Title);
             }
         }

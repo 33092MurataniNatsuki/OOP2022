@@ -49,7 +49,7 @@ namespace Exercise01 {
 
         private static void Exercise1_3(int[] numbers) {
             var selected = numbers.Select(n => n.ToString());
-            foreach (var n in selected) {
+            foreach (var n in selected){
                 Console.WriteLine(n);
             }
         }
