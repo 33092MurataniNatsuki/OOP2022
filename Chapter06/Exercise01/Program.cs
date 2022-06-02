@@ -54,9 +54,7 @@ namespace Exercise01 {
 
         private static void Exercise1_4(int[] numbers) {
             var num = numbers.OrderBy(x => x);
-            for (int i = 0; i < 3; i++) {
-
-            }
+            
         }
 
         private static void Exercise1_5(int[] numbers) {
