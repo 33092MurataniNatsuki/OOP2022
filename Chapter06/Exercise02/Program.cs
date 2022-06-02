@@ -58,11 +58,12 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_4(List<Book> books) {
-
+            var results = books.Find(s => s.Price >= 4000);
+            Console.WriteLine(results.Title);
         }
 
         private static void Exercise2_5(List<Book> books) {
-
+            
         }
 
         private static void Exercise2_6(List<Book> books) {
