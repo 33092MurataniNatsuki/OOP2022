@@ -41,6 +41,8 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_1(List<Book> books) {
+            //var date = books.Select(b => new { b.Price, b.Pages });
+
             var book = books.FirstOrDefault(b => b.Title == "ワンダフル・C#ライフ");
             if (book != null) {
                 Console.WriteLine("{0} {1}", book.Price, book.Pages);
@@ -80,7 +82,9 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_7(List<Book> books) {
-
+            foreach (var s in books.Where(s => s.Title.Contains("C#") && s.Pages <= 500)) {
+                Console.WriteLine(s.Title);
+            }
         }
 
         class Book {
