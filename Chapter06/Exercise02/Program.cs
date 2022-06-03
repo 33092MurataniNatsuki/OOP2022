@@ -34,10 +34,12 @@ namespace Exercise02 {
             Console.WriteLine("-----");
 
             Exercise2_6(books);
-
             Console.WriteLine("-----");
 
             Exercise2_7(books);
+            Console.WriteLine("-----");
+
+            Exercise2_8(books);
         }
 
         private static void Exercise2_1(List<Book> books) {
@@ -66,8 +68,14 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_4(List<Book> books) {
-            var results = books.Find(s => s.Price >= 4000);
-            Console.WriteLine(results.Title);
+            var book = books.FirstOrDefault(b => b.Price >= 4000);
+            if (book != null) {
+                Console.WriteLine(book.Title);
+            }
+            #region
+            //var results = books.Find(s => s.Price >= 4000);
+            //Console.WriteLine(results.Title);
+            #endregion
         }
 
         private static void Exercise2_5(List<Book> books) {
@@ -77,8 +85,8 @@ namespace Exercise02 {
 
         private static void Exercise2_6(List<Book> books) {
             var results = books.Where(s => s.Pages >= 400).OrderByDescending(p => p.Price);
-            foreach (var s in results){
-                Console.WriteLine(s.Title+" "+s.Price);
+            foreach (var s in results) {
+                Console.WriteLine(s.Title + " " + s.Price);
             }
         }
 
@@ -87,6 +95,19 @@ namespace Exercise02 {
             foreach (var s in results) {
                 Console.WriteLine(s.Title);
             }
+        }
+
+        private static void Exercise2_8(List<Book> books) {
+            foreach (var item in books.Select((b, i) => new { i, b.Title })) {
+                Console.WriteLine((item.i + 1) + "冊目：" + item.Title);
+            }
+            #region
+            //int index = 0; 
+            //foreach (var s in books) {
+            //    index++;
+            //    Console.WriteLine("{0}冊目：{1}",index,s.Title);
+            //}
+            #endregion
         }
 
         class Book {
