@@ -20,7 +20,7 @@ namespace Sample0607 {
 
         //ボタンクリックイベントハンドラ
         private void btRandom_Click(object sender, EventArgs e) {
-            Number.Value = rand.Next(minValue: (int)min.Value, maxValue: (int)max.Value);
+            Number.Value = rand.Next(minValue: (int)min.Value, maxValue: (int)max.Value+1);
         }
 
         //イベントハンドラ（起動時に一度だけ実行）
