@@ -21,8 +21,9 @@ namespace NumberGame {
 
         private void Form1_Load(object sender, EventArgs e) {
             //乱数取得
-            randomNumber = rand.Next(1, (int)nudNum.Value);
-            this.Text = randomNumber.ToString();
+            //randomNumber = rand.Next(1, (int)nudNum.Value);
+            //this.Text = randomNumber.ToString();
+            getRandom();
         }
 
         private void btInput_Click(object sender, EventArgs e) {
@@ -37,7 +38,12 @@ namespace NumberGame {
         }
 
         private void nudNum_ValueChanged(object sender, EventArgs e) {
-            randomNumber = rand.Next(1,(int)nudNum.Value);
+            //Form1_Load(sender, e);
+            getRandom();
+        }
+
+        private void getRandom() {
+            randomNumber = rand.Next(1, (int)nudNum.Value);
             this.Text = randomNumber.ToString();
         }
     }
