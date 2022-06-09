@@ -20,13 +20,25 @@ namespace NumberGame {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            //乱数取得            
-            randomNumber = rand.Next(1, 51);
+            //乱数取得
+            randomNumber = rand.Next(1, (int)nudNum.Value);
+            this.Text = randomNumber.ToString();
         }
 
         private void btInput_Click(object sender, EventArgs e) {
             //入力した値とあらかじめ取得した乱数を比較し結果を表示
-            
+            if (Number.Value == randomNumber) {
+                toolStripStatusLabel1.Text = "正解！";
+            }else if (Number.Value < randomNumber) {
+                toolStripStatusLabel1.Text = "もっと大きいです。";
+            } else {
+                toolStripStatusLabel1.Text = "もっと小さいです。";
+            }
+        }
+
+        private void nudNum_ValueChanged(object sender, EventArgs e) {
+            randomNumber = rand.Next(1,(int)nudNum.Value);
+            this.Text = randomNumber.ToString();
         }
     }
 }

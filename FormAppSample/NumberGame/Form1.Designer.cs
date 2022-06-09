@@ -27,24 +27,29 @@ namespace NumberGame {
             this.label1 = new System.Windows.Forms.Label();
             this.Number = new System.Windows.Forms.NumericUpDown();
             this.btInput = new System.Windows.Forms.Button();
-            this.tbHint = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nudNum = new System.Windows.Forms.NumericUpDown();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.Number)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNum)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(44, 69);
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(64, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(507, 37);
+            this.label1.Size = new System.Drawing.Size(72, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "1～50の中から好きな数字を入力";
+            this.label1.Text = "1から";
             // 
             // Number
             // 
             this.Number.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Number.Location = new System.Drawing.Point(135, 172);
+            this.Number.Location = new System.Drawing.Point(151, 164);
             this.Number.Name = "Number";
             this.Number.Size = new System.Drawing.Size(120, 44);
             this.Number.TabIndex = 1;
@@ -52,35 +57,71 @@ namespace NumberGame {
             // btInput
             // 
             this.btInput.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btInput.Location = new System.Drawing.Point(326, 172);
+            this.btInput.Location = new System.Drawing.Point(307, 164);
             this.btInput.Name = "btInput";
-            this.btInput.Size = new System.Drawing.Size(109, 44);
+            this.btInput.Size = new System.Drawing.Size(149, 44);
             this.btInput.TabIndex = 2;
-            this.btInput.Text = "入力";
+            this.btInput.Text = "判定！";
             this.btInput.UseVisualStyleBackColor = true;
             this.btInput.Click += new System.EventHandler(this.btInput_Click);
             // 
-            // tbHint
+            // label2
             // 
-            this.tbHint.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbHint.Location = new System.Drawing.Point(135, 263);
-            this.tbHint.Name = "tbHint";
-            this.tbHint.Size = new System.Drawing.Size(340, 28);
-            this.tbHint.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(275, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(304, 29);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "の中で好きな数字を入力";
+            // 
+            // nudNum
+            // 
+            this.nudNum.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.nudNum.Location = new System.Drawing.Point(151, 76);
+            this.nudNum.Name = "nudNum";
+            this.nudNum.Size = new System.Drawing.Size(113, 44);
+            this.nudNum.TabIndex = 4;
+            this.nudNum.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudNum.ValueChanged += new System.EventHandler(this.nudNum_ValueChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 350);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip1.TabIndex = 5;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 410);
-            this.Controls.Add(this.tbHint);
+            this.ClientSize = new System.Drawing.Size(632, 372);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.nudNum);
             this.Controls.Add(this.btInput);
             this.Controls.Add(this.Number);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Number)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNum)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,7 +132,10 @@ namespace NumberGame {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown Number;
         private System.Windows.Forms.Button btInput;
-        private System.Windows.Forms.TextBox tbHint;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nudNum;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
