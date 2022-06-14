@@ -7,7 +7,7 @@ namespace Test01 {
 
         // コンストラクタ
         public ScoreCounter(string filePath) {
-
+            _score = ReadScore(filePath);
 
 
             
@@ -28,12 +28,19 @@ namespace Test01 {
 
         //メソッドの概要： 
         public IDictionary<string, int> GetPerStudentScore() {
+            //var dict = new Dictionary<string, int>();
+            //foreach (var score in _score) {
+            //    if (dict.ContainsKey(score.ShopName))
+            //        dict[score.ShopName] += score.Amount;
+            //    else
+            //        dict[score.ShopName] = score.Amount;
+            //}
+            //return dict;
 
 
 
 
 
-            
         }
     }
 }
