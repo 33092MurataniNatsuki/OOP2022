@@ -10,7 +10,6 @@ namespace Test01 {
             _score = ReadScore(filePath);
         }
 
-
         //メソッドの概要： 
         private static IEnumerable<Student> ReadScore(string filePath) {
             List<Student> students = new List<Student>();
