@@ -45,6 +45,9 @@ namespace AddressBook {
             this.btUpdate = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.cbCompany = new System.Windows.Forms.ComboBox();
+            this.btSave = new System.Windows.Forms.Button();
+            this.btOpen = new System.Windows.Forms.Button();
+            this.sfdSaveDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
@@ -104,12 +107,12 @@ namespace AddressBook {
             this.dgvPersons.AllowUserToAddRows = false;
             this.dgvPersons.AllowUserToDeleteRows = false;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersons.Location = new System.Drawing.Point(12, 290);
+            this.dgvPersons.Location = new System.Drawing.Point(86, 290);
             this.dgvPersons.MultiSelect = false;
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.RowTemplate.Height = 21;
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersons.Size = new System.Drawing.Size(679, 185);
+            this.dgvPersons.Size = new System.Drawing.Size(605, 185);
             this.dgvPersons.TabIndex = 1;
             // 
             // tbName
@@ -252,6 +255,28 @@ namespace AddressBook {
             this.cbCompany.Size = new System.Drawing.Size(328, 32);
             this.cbCompany.TabIndex = 7;
             // 
+            // btSave
+            // 
+            this.btSave.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btSave.Location = new System.Drawing.Point(12, 440);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(68, 34);
+            this.btSave.TabIndex = 4;
+            this.btSave.Text = "保存...";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // btOpen
+            // 
+            this.btOpen.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btOpen.Location = new System.Drawing.Point(12, 397);
+            this.btOpen.Name = "btOpen";
+            this.btOpen.Size = new System.Drawing.Size(68, 37);
+            this.btOpen.TabIndex = 4;
+            this.btOpen.Text = "開く...";
+            this.btOpen.UseVisualStyleBackColor = true;
+            this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -263,6 +288,8 @@ namespace AddressBook {
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btUpdate);
+            this.Controls.Add(this.btOpen);
+            this.Controls.Add(this.btSave);
             this.Controls.Add(this.btAddPerson);
             this.Controls.Add(this.cbOther);
             this.Controls.Add(this.cbWork);
@@ -309,6 +336,9 @@ namespace AddressBook {
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.ComboBox cbCompany;
+        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btOpen;
+        private System.Windows.Forms.SaveFileDialog sfdSaveDialog;
     }
 }
 
