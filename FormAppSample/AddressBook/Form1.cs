@@ -41,6 +41,8 @@ namespace AddressBook {
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
                 Registration = dtpRegistDate.Value,
+                TelNumber = tbTelNumber.Text,
+                //KindNumber = GetGroupBox(),
             };
             listPerson.Add(newPerson);
             dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
@@ -60,6 +62,17 @@ namespace AddressBook {
                 //まだ登録されていなければ登録処理
                 cbCompany.Items.Add(company);
             }
+        }
+
+        private List<Person.KindNumberType> GetGroupBox() {
+            var listGroup = new List<Person.KindNumberType>();
+            if (rbHome.Checked) {
+                listGroup.Add(Person.KindNumberType.自宅);
+            }
+            if (rbMobile.Checked) {
+                listGroup.Add(Person.KindNumberType.携帯);
+            }
+            return listGroup;
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -95,9 +108,9 @@ namespace AddressBook {
             tbAddress.Text = listPerson[index].Address;
             cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
-
             dtpRegistDate.Value =
                 listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
+            tbTelNumber.Text = listPerson[index].TelNumber;
 
             groupCheckBoxAllClear();    //グループチェックボックスを一旦初期化
 
@@ -135,6 +148,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
             listPerson[dgvPersons.CurrentRow.Index].Registration = dtpRegistDate.Value;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+            listPerson[dgvPersons.CurrentRow.Index].TelNumber = tbTelNumber.Text;
             dgvPersons.Refresh(); //データグリッドビュー更新
         }
         //削除ボタンが押された時の処理

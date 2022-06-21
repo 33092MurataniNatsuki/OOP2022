@@ -50,8 +50,14 @@ namespace AddressBook {
             this.sfdSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpRegistDate = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.gbTelNumber = new System.Windows.Forms.GroupBox();
+            this.rbMobile = new System.Windows.Forms.RadioButton();
+            this.rbHome = new System.Windows.Forms.RadioButton();
+            this.tbTelNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            this.gbTelNumber.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -109,12 +115,12 @@ namespace AddressBook {
             this.dgvPersons.AllowUserToAddRows = false;
             this.dgvPersons.AllowUserToDeleteRows = false;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersons.Location = new System.Drawing.Point(86, 290);
+            this.dgvPersons.Location = new System.Drawing.Point(86, 358);
             this.dgvPersons.MultiSelect = false;
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.RowTemplate.Height = 21;
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersons.Size = new System.Drawing.Size(605, 185);
+            this.dgvPersons.Size = new System.Drawing.Size(605, 117);
             this.dgvPersons.TabIndex = 1;
             this.dgvPersons.Click += new System.EventHandler(this.dgvPersons_Click);
             // 
@@ -296,11 +302,64 @@ namespace AddressBook {
             this.dtpRegistDate.Size = new System.Drawing.Size(164, 19);
             this.dtpRegistDate.TabIndex = 9;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.Location = new System.Drawing.Point(75, 315);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 27);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "電話番号";
+            // 
+            // gbTelNumber
+            // 
+            this.gbTelNumber.Controls.Add(this.rbMobile);
+            this.gbTelNumber.Controls.Add(this.rbHome);
+            this.gbTelNumber.Location = new System.Drawing.Point(212, 279);
+            this.gbTelNumber.Name = "gbTelNumber";
+            this.gbTelNumber.Size = new System.Drawing.Size(118, 36);
+            this.gbTelNumber.TabIndex = 10;
+            this.gbTelNumber.TabStop = false;
+            this.gbTelNumber.Text = "種別";
+            // 
+            // rbMobile
+            // 
+            this.rbMobile.AutoSize = true;
+            this.rbMobile.Location = new System.Drawing.Point(59, 18);
+            this.rbMobile.Name = "rbMobile";
+            this.rbMobile.Size = new System.Drawing.Size(47, 16);
+            this.rbMobile.TabIndex = 0;
+            this.rbMobile.Text = "携帯";
+            this.rbMobile.UseVisualStyleBackColor = true;
+            // 
+            // rbHome
+            // 
+            this.rbHome.AutoSize = true;
+            this.rbHome.Checked = true;
+            this.rbHome.Location = new System.Drawing.Point(6, 18);
+            this.rbHome.Name = "rbHome";
+            this.rbHome.Size = new System.Drawing.Size(47, 16);
+            this.rbHome.TabIndex = 0;
+            this.rbHome.TabStop = true;
+            this.rbHome.Text = "自宅";
+            this.rbHome.UseVisualStyleBackColor = true;
+            // 
+            // tbTelNumber
+            // 
+            this.tbTelNumber.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbTelNumber.Location = new System.Drawing.Point(212, 311);
+            this.tbTelNumber.Name = "tbTelNumber";
+            this.tbTelNumber.Size = new System.Drawing.Size(240, 31);
+            this.tbTelNumber.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 522);
+            this.Controls.Add(this.tbTelNumber);
+            this.Controls.Add(this.gbTelNumber);
             this.Controls.Add(this.dtpRegistDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbCompany);
@@ -320,6 +379,7 @@ namespace AddressBook {
             this.Controls.Add(this.tbMailAddress);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.dgvPersons);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -330,6 +390,8 @@ namespace AddressBook {
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            this.gbTelNumber.ResumeLayout(false);
+            this.gbTelNumber.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,6 +425,11 @@ namespace AddressBook {
         private System.Windows.Forms.SaveFileDialog sfdSaveDialog;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpRegistDate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox gbTelNumber;
+        private System.Windows.Forms.RadioButton rbMobile;
+        private System.Windows.Forms.RadioButton rbHome;
+        private System.Windows.Forms.TextBox tbTelNumber;
     }
 }
 
