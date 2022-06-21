@@ -44,10 +44,11 @@ namespace AddressBook {
             listPerson.Add(newPerson);
             dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
 
-            if (listPerson.Count() > 0) {
-                btDelete.Enabled = true;
-                btUpdate.Enabled = true;
-            }
+            //if (listPerson.Count() > 0) {
+            //    btDelete.Enabled = true;
+            //    btUpdate.Enabled = true;
+            //}
+            EnabledCheck(); //マスク処理呼び出し
 
             setCbCompany(cbCompany.Text);
         }
@@ -56,7 +57,7 @@ namespace AddressBook {
         private void setCbCompany(string company) {
             if (!cbCompany.Items.Contains(company)) {
                 //まだ登録されていなければ登録処理
-                cbCompany.Items.Add(cbCompany.Text);
+                cbCompany.Items.Add(company);
             }
         }
 
@@ -134,14 +135,28 @@ namespace AddressBook {
         //削除ボタンが押された時の処理
         private void btDelete_Click_1(object sender, EventArgs e) {
             listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
-            if (listPerson.Count() == 0)
-                btDelete.Enabled = false;
-            btUpdate.Enabled = false;
+
+            EnabledCheck(); //マスク処理呼び出し
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-            btDelete.Enabled = false;   //削除ボタンをマスク
-            btUpdate.Enabled = false;   //更新ボタン
+        //更新・削除ボタンのマスク処理行う（マスク判定含む）
+        private void EnabledCheck() {
+            #region
+            //if (listPerson.Count() > 0) {
+            //    //マスク解除
+            //    btDelete.Enabled = true;
+            //    btUpdate.Enabled = true;
+            //} else {
+            //    //マスク設定
+            //    btDelete.Enabled = false;   //削除ボタンをマスク
+            //    btUpdate.Enabled = false;   //更新ボタン
+            //}
+            #endregion
+            btUpdate.Enabled = btDelete.Enabled = listPerson.Count() > 0 ? true : false;
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e) {
+            EnabledCheck(); //マスク処理呼び出し
         }
 
         //保存ボタンのイベントハンドラ
@@ -178,11 +193,13 @@ namespace AddressBook {
                     MessageBox.Show(ex.Message);
                 }
 
+                cbCompany.Items.Clear();
+                //コンボボックスへ登録
                 foreach (var item in listPerson.Select(p => p.Company)) {
                     setCbCompany(item); //存在する会社を登録
                 }
             }
+            EnabledCheck(); //マスク処理呼び出し
         }
-
     }
 }
