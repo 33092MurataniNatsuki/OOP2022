@@ -40,6 +40,7 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
+                Registration = dtpRegistDate.Value,
             };
             listPerson.Add(newPerson);
             dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
@@ -95,6 +96,9 @@ namespace AddressBook {
             cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
 
+            dtpRegistDate.Value =
+                listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
+
             groupCheckBoxAllClear();    //グループチェックボックスを一旦初期化
 
             foreach (var group in listPerson[index].listGroup) {
@@ -129,6 +133,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dgvPersons.CurrentRow.Index].Registration = dtpRegistDate.Value;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             dgvPersons.Refresh(); //データグリッドビュー更新
         }
@@ -193,13 +198,14 @@ namespace AddressBook {
                     MessageBox.Show(ex.Message);
                 }
 
-                cbCompany.Items.Clear();
-                //コンボボックスへ登録
+                cbCompany.Items.Clear(); //コンボボックスのアイテム消去
+                //コンボボックスへ新規登録
                 foreach (var item in listPerson.Select(p => p.Company)) {
                     setCbCompany(item); //存在する会社を登録
                 }
             }
             EnabledCheck(); //マスク処理呼び出し
         }
+
     }
 }
