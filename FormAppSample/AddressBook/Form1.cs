@@ -42,7 +42,7 @@ namespace AddressBook {
                 listGroup = GetCheckBoxGroup(),
                 Registration = dtpRegistDate.Value,
                 TelNumber = tbTelNumber.Text,
-                //KindNumber = GetGroupBox(),
+                KindNumber = GetRadioButtonKindNumber(),
             };
             listPerson.Add(newPerson);
             dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
@@ -64,15 +64,16 @@ namespace AddressBook {
             }
         }
 
-        private List<Person.KindNumberType> GetGroupBox() {
-            var listGroup = new List<Person.KindNumberType>();
-            if (rbHome.Checked) {
-                listGroup.Add(Person.KindNumberType.自宅);
+        private Person.KindNumberType GetRadioButtonKindNumber() {
+            //デフォルトの戻りを設定
+            Person.KindNumberType selectedKindNumber = Person.KindNumberType.その他;
+            if (rbHome.Checked) { //自宅にチェックがついている
+               selectedKindNumber = Person.KindNumberType.自宅;
             }
-            if (rbMobile.Checked) {
-                listGroup.Add(Person.KindNumberType.携帯);
+            if (rbMobile.Checked) { //携帯にチェックがついている
+               selectedKindNumber = Person.KindNumberType.携帯;
             }
-            return listGroup;
+            return selectedKindNumber;
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -112,6 +113,27 @@ namespace AddressBook {
                 listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
             tbTelNumber.Text = listPerson[index].TelNumber;
 
+            setGroupType(index); //グループを設定
+            setKindNumberType(index); //番号種別を設定
+        }
+
+        private void setKindNumberType(int index) {
+            //番号種別チェック処理
+            switch (listPerson[index].KindNumber) {
+                case Person.KindNumberType.自宅:
+                    rbHome.Checked = true;
+                    break;
+                case Person.KindNumberType.携帯:
+                    rbMobile.Checked = true;
+                    break;
+                case Person.KindNumberType.その他:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void setGroupType(int index) {
             groupCheckBoxAllClear();    //グループチェックボックスを一旦初期化
 
             foreach (var group in listPerson[index].listGroup) {
@@ -149,6 +171,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].Registration = dtpRegistDate.Value;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             listPerson[dgvPersons.CurrentRow.Index].TelNumber = tbTelNumber.Text;
+            listPerson[dgvPersons.CurrentRow.Index].KindNumber = GetRadioButtonKindNumber();
             dgvPersons.Refresh(); //データグリッドビュー更新
         }
         //削除ボタンが押された時の処理
