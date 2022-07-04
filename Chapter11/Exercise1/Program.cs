@@ -22,7 +22,7 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_1(string file) {
-            var xdoc = XDocument.Load("Sample.xml");
+            var xdoc = XDocument.Load(file);
             var xelement = xdoc.Root.Elements()
                                     .Select(x => new {
                                         Name = (string)x.Element("name"),
@@ -34,7 +34,7 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_2(string file) {
-            var xdoc = XDocument.Load("Sample.xml");
+            var xdoc = XDocument.Load(file);
             var xelement = xdoc.Root.Elements()
                                     .Select(x => new {
                                         Name = (string)x.Element("name").Attribute("kanji"),
@@ -46,7 +46,7 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_3(string file) {
-            var xdoc = XDocument.Load("Sample.xml");
+            var xdoc = XDocument.Load(file);
             var xelement = xdoc.Root.Elements()
                                     .Select(x => new {
                                         Name = (string)x.Element("name"),
@@ -61,9 +61,8 @@ namespace Exercise1 {
                                         new XElement("teammembers", "11"),
                                         new XElement("firstplayed", "1848")
                                        );
-            var xdoc = XDocument.Load("Sample.xml");
+            var xdoc = XDocument.Load(file);
             xdoc.Root.Add(element);
-            //xdoc.Save("newSample.xml");
         }
     }
 }
