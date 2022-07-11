@@ -19,6 +19,9 @@ namespace Exercise1 {
 
             var newfile = "sports.xml";
             Exercise1_4(file, newfile);
+            //これは確認用
+            var text = File.ReadAllText(newfile);
+            Console.WriteLine(text);
         }
 
         private static void Exercise1_1(string file) {
@@ -47,22 +50,43 @@ namespace Exercise1 {
 
         private static void Exercise1_3(string file) {
             var xdoc = XDocument.Load(file);
-            var xelement = xdoc.Root.Elements()
-                                    .Select(x => new {
-                                        Name = (string)x.Element("name"),
-                                        Teammembers = (string)x.Element("teammembers")
-                                    }).Max(x => x.Teammembers);
-            Console.WriteLine(xelement);
+            #region
+            //var xteammembers = xdoc.Root.Elements()
+            //                        .Select(x => new {
+            //                            Teammembers = (string)x.Element("teammembers")
+            //                        }).Max(x => x.Teammembers);
+
+            //var xname = xdoc.Root.Elements()
+            //                        .Where(x => x.Element("teammembers").Value == xteammembers);
+
+            //foreach (var sport in xname) {
+            //    Console.WriteLine(sport.Element("name").Value);
+            //}
+            #endregion
+            var sport = xdoc.Root.Elements()
+                            .Select(x => new {
+                                Name = x.Element("name").Value,
+                                Teammembers = x.Element("teammembers").Value
+                            })
+                            .OrderByDescending(x => int.Parse(x.Teammembers)).FirstOrDefault();
+
+            Console.WriteLine("{0}({1}人)", sport.Name, sport.Teammembers);
         }
 
         private static void Exercise1_4(string file, string newfile) {
+            var xdoc = XDocument.Load(file);
+
+            //要素の追加
             var element = new XElement("ballsport",
                                         new XElement("name", "サッカー", new XAttribute("kanji", "蹴球")),
                                         new XElement("teammembers", "11"),
-                                        new XElement("firstplayed", "1848")
+                                        new XElement("firstplayed", "1863")
                                        );
-            var xdoc = XDocument.Load(file);
+
             xdoc.Root.Add(element);
+
+            //XMLファイルへの保存
+            xdoc.Save(newfile);
         }
     }
 }
