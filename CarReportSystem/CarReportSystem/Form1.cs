@@ -218,7 +218,7 @@ namespace CarReportSystem {
             //色設定ダイアログの表示
             if (cdColorSelect.ShowDialog() == DialogResult.OK) {
                 BackColor = cdColorSelect.Color;
-                settings.MainFormColor = "ddddd"; //cdColorSelect.Color; //設定オブジェクトへセット
+                settings.MainFormColor = cdColorSelect.Color.ToArgb(); //設定オブジェクトへセット
             }
         }
 
@@ -236,8 +236,8 @@ namespace CarReportSystem {
             using (var reader = XmlReader.Create("settings.xml")) {
                 var serializer = new XmlSerializer(typeof(Settings));
                 var setting = serializer.Deserialize(reader) as Settings;
+                BackColor = Color.FromArgb(setting.MainFormColor); //ARGBからColorオブジェクトへ変換
             }
-
             EnabledCheck(); //マスク処理呼び出し
         }
 
@@ -247,6 +247,7 @@ namespace CarReportSystem {
                 var serializer = new XmlSerializer(settings.GetType());
                 serializer.Serialize(writer,settings);
             }
+            
         }
     }
 }
