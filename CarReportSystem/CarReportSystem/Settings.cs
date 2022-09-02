@@ -5,10 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarReportSystem {
+namespace CarReportSystem
+{
     //設定情報
-    [Serializable]
-    public class Settings {
+    public class Settings
+    {
+        private static Settings settings;
+
+        [System.ComponentModel.DisplayName("色")]
         public int MainFormColor { get; set; }
+
+        private Settings()
+        {
+        }
+            public static Settings getIndtance()
+            {
+                if(settings == null) {
+                    settings = new Settings();
+                }
+                return settings;
+            }
+
+        
+
     }
 }
