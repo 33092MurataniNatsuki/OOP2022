@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseSample", "ADONET\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBook", "ADONET\AddressBook\AddressBook.csproj", "{C52A7748-933D-40E0-ABF6-732D4979234C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarReportSystem", "CarReportSystem\CarReportSystem\CarReportSystem.csproj", "{2CB035F3-87E4-410E-9273-04C74407BBBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 		{C52A7748-933D-40E0-ABF6-732D4979234C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C52A7748-933D-40E0-ABF6-732D4979234C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C52A7748-933D-40E0-ABF6-732D4979234C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB035F3-87E4-410E-9273-04C74407BBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB035F3-87E4-410E-9273-04C74407BBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB035F3-87E4-410E-9273-04C74407BBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB035F3-87E4-410E-9273-04C74407BBBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
