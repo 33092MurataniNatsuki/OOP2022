@@ -73,10 +73,10 @@ namespace AddressBook {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.データベース接続ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableBindingNavigator)).BeginInit();
             this.addressTableBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableBindingSource)).BeginInit();
@@ -506,6 +506,17 @@ namespace AddressBook {
             this.データベース接続ToolStripMenuItem.Text = "データベース接続";
             this.データベース接続ToolStripMenuItem.Click += new System.EventHandler(this.データベース接続ToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // 終了ToolStripMenuItem
+            // 
+            this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Text = "終了";
+            // 
             // ヘルプHToolStripMenuItem
             // 
             this.ヘルプHToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -520,17 +531,6 @@ namespace AddressBook {
             this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
-            // 
-            // 終了ToolStripMenuItem
-            // 
-            this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.終了ToolStripMenuItem.Text = "終了";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // btClear
             // 

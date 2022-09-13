@@ -69,11 +69,7 @@ namespace CarReportSystem
             this.pbModeSelect = new System.Windows.Forms.Button();
             this.ofdCarReportOpen = new System.Windows.Forms.OpenFileDialog();
             this.sfdCarReportSave = new System.Windows.Forms.SaveFileDialog();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.infosys202209DataSet = new CarReportSystem.infosys202209DataSet();
-            this.carReportDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carReportDBTableAdapter = new CarReportSystem.infosys202209DataSetTableAdapters.CarReportDBTableAdapter();
-            this.tableAdapterManager = new CarReportSystem.infosys202209DataSetTableAdapters.TableAdapterManager();
+            this.dgvCarReportDB = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,12 +77,16 @@ namespace CarReportSystem
             this.carNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.carReportDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.infosys202209DataSet = new CarReportSystem.infosys202209DataSet();
+            this.carReportDBTableAdapter = new CarReportSystem.infosys202209DataSetTableAdapters.CarReportDBTableAdapter();
+            this.tableAdapterManager = new CarReportSystem.infosys202209DataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReport)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infosys202209DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarReportDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carReportDBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infosys202209DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -137,7 +137,7 @@ namespace CarReportSystem
             this.cbAuther.FormattingEnabled = true;
             this.cbAuther.Location = new System.Drawing.Point(77, 93);
             this.cbAuther.Name = "cbAuther";
-            this.cbAuther.Size = new System.Drawing.Size(267, 20);
+            this.cbAuther.Size = new System.Drawing.Size(472, 20);
             this.cbAuther.TabIndex = 2;
             // 
             // label5
@@ -220,7 +220,7 @@ namespace CarReportSystem
             this.cbCarName.FormattingEnabled = true;
             this.cbCarName.Location = new System.Drawing.Point(77, 166);
             this.cbCarName.Name = "cbCarName";
-            this.cbCarName.Size = new System.Drawing.Size(267, 20);
+            this.cbCarName.Size = new System.Drawing.Size(472, 20);
             this.cbCarName.TabIndex = 2;
             // 
             // tbReport
@@ -228,13 +228,13 @@ namespace CarReportSystem
             this.tbReport.Location = new System.Drawing.Point(76, 205);
             this.tbReport.Multiline = true;
             this.tbReport.Name = "tbReport";
-            this.tbReport.Size = new System.Drawing.Size(341, 127);
+            this.tbReport.Size = new System.Drawing.Size(473, 127);
             this.tbReport.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(421, 69);
+            this.label6.Location = new System.Drawing.Point(561, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 0;
@@ -242,7 +242,7 @@ namespace CarReportSystem
             // 
             // btPictureOpen
             // 
-            this.btPictureOpen.Location = new System.Drawing.Point(468, 64);
+            this.btPictureOpen.Location = new System.Drawing.Point(608, 64);
             this.btPictureOpen.Name = "btPictureOpen";
             this.btPictureOpen.Size = new System.Drawing.Size(75, 23);
             this.btPictureOpen.TabIndex = 5;
@@ -252,7 +252,7 @@ namespace CarReportSystem
             // 
             // btPictureDelete
             // 
-            this.btPictureDelete.Location = new System.Drawing.Point(549, 64);
+            this.btPictureDelete.Location = new System.Drawing.Point(689, 64);
             this.btPictureDelete.Name = "btPictureDelete";
             this.btPictureDelete.Size = new System.Drawing.Size(75, 23);
             this.btPictureDelete.TabIndex = 5;
@@ -263,7 +263,7 @@ namespace CarReportSystem
             // pbPicture
             // 
             this.pbPicture.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pbPicture.Location = new System.Drawing.Point(423, 93);
+            this.pbPicture.Location = new System.Drawing.Point(563, 93);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(237, 199);
             this.pbPicture.TabIndex = 6;
@@ -271,7 +271,7 @@ namespace CarReportSystem
             // 
             // btAddReport
             // 
-            this.btAddReport.Location = new System.Drawing.Point(423, 298);
+            this.btAddReport.Location = new System.Drawing.Point(563, 298);
             this.btAddReport.Name = "btAddReport";
             this.btAddReport.Size = new System.Drawing.Size(75, 34);
             this.btAddReport.TabIndex = 5;
@@ -281,7 +281,7 @@ namespace CarReportSystem
             // 
             // btModifyReport
             // 
-            this.btModifyReport.Location = new System.Drawing.Point(504, 298);
+            this.btModifyReport.Location = new System.Drawing.Point(644, 298);
             this.btModifyReport.Name = "btModifyReport";
             this.btModifyReport.Size = new System.Drawing.Size(75, 34);
             this.btModifyReport.TabIndex = 5;
@@ -291,7 +291,7 @@ namespace CarReportSystem
             // 
             // btDeleteReport
             // 
-            this.btDeleteReport.Location = new System.Drawing.Point(585, 298);
+            this.btDeleteReport.Location = new System.Drawing.Point(725, 298);
             this.btDeleteReport.Name = "btDeleteReport";
             this.btDeleteReport.Size = new System.Drawing.Size(75, 34);
             this.btDeleteReport.TabIndex = 5;
@@ -301,21 +301,11 @@ namespace CarReportSystem
             // 
             // dgvCarReport
             // 
-            this.dgvCarReport.AutoGenerateColumns = false;
             this.dgvCarReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.authorDataGridViewTextBoxColumn,
-            this.makerDataGridViewTextBoxColumn,
-            this.carNameDataGridViewTextBoxColumn,
-            this.reportDataGridViewTextBoxColumn,
-            this.imageDataGridViewImageColumn});
-            this.dgvCarReport.DataSource = this.carReportDBBindingSource;
-            this.dgvCarReport.Location = new System.Drawing.Point(77, 338);
+            this.dgvCarReport.Location = new System.Drawing.Point(77, 505);
             this.dgvCarReport.Name = "dgvCarReport";
             this.dgvCarReport.RowTemplate.Height = 21;
-            this.dgvCarReport.Size = new System.Drawing.Size(583, 161);
+            this.dgvCarReport.Size = new System.Drawing.Size(390, 88);
             this.dgvCarReport.TabIndex = 7;
             // 
             // label7
@@ -364,7 +354,7 @@ namespace CarReportSystem
             this.ファイルFToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(686, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(812, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -419,7 +409,7 @@ namespace CarReportSystem
             // 
             // pbModeSelect
             // 
-            this.pbModeSelect.Location = new System.Drawing.Point(628, 65);
+            this.pbModeSelect.Location = new System.Drawing.Point(768, 65);
             this.pbModeSelect.Name = "pbModeSelect";
             this.pbModeSelect.Size = new System.Drawing.Size(31, 21);
             this.pbModeSelect.TabIndex = 9;
@@ -431,34 +421,27 @@ namespace CarReportSystem
             // 
             this.ofdCarReportOpen.FileName = "openFileDialog1";
             // 
-            // dataGridView1
+            // dgvCarReportDB
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(77, 505);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(280, 62);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // infosys202209DataSet
-            // 
-            this.infosys202209DataSet.DataSetName = "infosys202209DataSet";
-            this.infosys202209DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carReportDBBindingSource
-            // 
-            this.carReportDBBindingSource.DataMember = "CarReportDB";
-            this.carReportDBBindingSource.DataSource = this.infosys202209DataSet;
-            // 
-            // carReportDBTableAdapter
-            // 
-            this.carReportDBTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CarReportDBTableAdapter = this.carReportDBTableAdapter;
-            this.tableAdapterManager.UpdateOrder = CarReportSystem.infosys202209DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.dgvCarReportDB.AllowUserToAddRows = false;
+            this.dgvCarReportDB.AutoGenerateColumns = false;
+            this.dgvCarReportDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarReportDB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.authorDataGridViewTextBoxColumn,
+            this.makerDataGridViewTextBoxColumn,
+            this.carNameDataGridViewTextBoxColumn,
+            this.reportDataGridViewTextBoxColumn,
+            this.imageDataGridViewImageColumn});
+            this.dgvCarReportDB.DataSource = this.carReportDBBindingSource;
+            this.dgvCarReportDB.Location = new System.Drawing.Point(77, 338);
+            this.dgvCarReportDB.Name = "dgvCarReportDB";
+            this.dgvCarReportDB.RowTemplate.Height = 21;
+            this.dgvCarReportDB.Size = new System.Drawing.Size(723, 161);
+            this.dgvCarReportDB.TabIndex = 10;
+            this.dgvCarReportDB.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCarReportDB_DataError);
+            this.dgvCarReportDB.Click += new System.EventHandler(this.dgvCarReportDB_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -503,12 +486,32 @@ namespace CarReportSystem
             this.imageDataGridViewImageColumn.HeaderText = "Image";
             this.imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
             // 
+            // carReportDBBindingSource
+            // 
+            this.carReportDBBindingSource.DataMember = "CarReportDB";
+            this.carReportDBBindingSource.DataSource = this.infosys202209DataSet;
+            // 
+            // infosys202209DataSet
+            // 
+            this.infosys202209DataSet.DataSetName = "infosys202209DataSet";
+            this.infosys202209DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carReportDBTableAdapter
+            // 
+            this.carReportDBTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CarReportDBTableAdapter = this.carReportDBTableAdapter;
+            this.tableAdapterManager.UpdateOrder = CarReportSystem.infosys202209DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 632);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(812, 632);
+            this.Controls.Add(this.dgvCarReportDB);
             this.Controls.Add(this.pbModeSelect);
             this.Controls.Add(this.dgvCarReport);
             this.Controls.Add(this.pbPicture);
@@ -546,9 +549,9 @@ namespace CarReportSystem
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReport)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infosys202209DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarReportDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carReportDBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infosys202209DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,7 +598,7 @@ namespace CarReportSystem
         private System.Windows.Forms.Button pbModeSelect;
         private System.Windows.Forms.OpenFileDialog ofdCarReportOpen;
         private System.Windows.Forms.SaveFileDialog sfdCarReportSave;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCarReportDB;
         private infosys202209DataSet infosys202209DataSet;
         private System.Windows.Forms.BindingSource carReportDBBindingSource;
         private infosys202209DataSetTableAdapters.CarReportDBTableAdapter carReportDBTableAdapter;

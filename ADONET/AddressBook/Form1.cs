@@ -134,5 +134,6 @@ namespace AddressBook {
         private void データベース接続ToolStripMenuItem_Click(object sender, EventArgs e) {
             this.addressTableTableAdapter.Fill(this.infosys202209DataSet.AddressTable);
         }
+
     }
 }
