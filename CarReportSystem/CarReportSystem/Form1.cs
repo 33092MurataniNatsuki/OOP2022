@@ -24,12 +24,12 @@ namespace CarReportSystem {
         Settings settings = Settings.getIndtance();
 
         //カーレポート管理用リスト
-        BindingList<CarReport> listCarReports = new BindingList<CarReport>();
+        //BindingList<CarReport> listCarReports = new BindingList<CarReport>();
 
         int mode = 0;
         public Form1() {
             InitializeComponent();
-            dgvCarReport.DataSource = listCarReports;
+            //dgvCarReport.DataSource = listCarReports;
         }
 
         private void btExit_Click(object sender, EventArgs e) {
@@ -267,18 +267,18 @@ namespace CarReportSystem {
         }
 
         private void btSaveReport_Click(object sender, EventArgs e) {
-            if (sfdCarReportSave.ShowDialog() == DialogResult.OK) {
-                try {
-                    //バイナリ形式でシリアル化
-                    var bf = new BinaryFormatter();
-                    using (FileStream fs = File.Open(sfdCarReportSave.FileName, FileMode.Create)) {
-                        bf.Serialize(fs, listCarReports);
-                    }
-                }
-                catch (Exception ex) {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+            //if (sfdCarReportSave.ShowDialog() == DialogResult.OK) {
+            //    try {
+            //        //バイナリ形式でシリアル化
+            //        var bf = new BinaryFormatter();
+            //        using (FileStream fs = File.Open(sfdCarReportSave.FileName, FileMode.Create)) {
+            //            bf.Serialize(fs, listCarReports);
+            //        }
+            //    }
+            //    catch (Exception ex) {
+            //        MessageBox.Show(ex.Message);
+            //    }
+            //}
         }
 
         private void dgvCarReportDB_Click(object sender, EventArgs e) {
@@ -338,6 +338,10 @@ namespace CarReportSystem {
 
         private void dgvCarReportDB_DataError(object sender, DataGridViewDataErrorEventArgs e) {
 
+        }
+
+        private void btNameSearch_Click(object sender, EventArgs e) {
+            carReportDBTableAdapter.FillByName(infosys202209DataSet.CarReportDB, tbNameSearch.Text);
         }
     }
 }
