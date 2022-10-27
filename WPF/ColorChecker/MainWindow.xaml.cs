@@ -39,11 +39,16 @@ namespace ColorChecker {
 
         public void chengeSlider() {
             if (rValue != null && gValue != null && bValue != null) {
-                var R = (int)Math.Round(double.Parse(rValue.Text));
-                var G = (int)Math.Round(double.Parse(gValue.Text));
-                var B = (int)Math.Round(double.Parse(bValue.Text));
-                Color color = Color.FromRgb((byte)R, (byte)G, (byte)B);
-                colorLabel.Background = new SolidColorBrush(color);
+                var r = byte.Parse(rValue.Text);
+                var g = byte.Parse(gValue.Text);
+                var b = byte.Parse(bValue.Text);
+                colorLabel.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
+
+                //var R = (int)Math.Round(double.Parse(rValue.Text));
+                //var G = (int)Math.Round(double.Parse(gValue.Text));
+                //var B = (int)Math.Round(double.Parse(bValue.Text));
+                //Color color = Color.FromRgb((byte)R, (byte)G, (byte)B);
+                //colorLabel.Background = new SolidColorBrush(color);
             }
         }
 
