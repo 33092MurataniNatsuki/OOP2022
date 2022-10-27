@@ -22,16 +22,16 @@
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
-            <Label Content="" Target="{Binding ElementName=checkBox,Mode=OneWay}" Grid.RowSpan="6" Margin="21,27,27,34" RenderTransformOrigin="0.462,0.448" Background="LightGray"/>
+            <Label x:Name="colorLabel" Content="" Target="{Binding ElementName=checkBox,Mode=OneWay}" Grid.RowSpan="6" Margin="21,27,27,34" RenderTransformOrigin="0.462,0.448" Background="AliceBlue" BorderThickness="1,1,1,1" BorderBrush="DarkBlue"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="1" Text="R" FontSize="22"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="2" Text="G" FontSize="22"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="3" Text="B" FontSize="22"/>
-            <Slider x:Name="SampleSlider1" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="1" Maximum="256"/>
-            <Slider x:Name="SampleSlider2" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="2" Maximum="256"/>
-            <Slider x:Name="SampleSlider3" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Maximum="256"/>
-            <TextBox HorizontalAlignment="Left" Width="40" Height="20" Grid.Column="3" Grid.Row="1" Text="{Binding ElementName=SampleSlider1,Path=Value,UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox HorizontalAlignment="Left" Width="40" Height="20" Grid.Column="3" Grid.Row="2" Text="{Binding ElementName=SampleSlider2,Path=Value,UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox HorizontalAlignment="Left" Width="40" Height="20" Grid.Column="3" Grid.Row="3" Text="{Binding ElementName=SampleSlider3,Path=Value,UpdateSourceTrigger=PropertyChanged}" />
+            <Slider x:Name="SampleSlider1" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="1" Maximum="255"/>
+            <Slider x:Name="SampleSlider2" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="2" Maximum="255"/>
+            <Slider x:Name="SampleSlider3" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Maximum="255"/>
+            <TextBox x:Name="rValue" HorizontalAlignment="Left" Width="40" Height="20" Grid.Column="3" Grid.Row="1" Text="{Binding ElementName=SampleSlider1,Path=Value,UpdateSourceTrigger=PropertyChanged}" TextChanged="rValue_TextChanged" />
+            <TextBox x:Name="gValue" HorizontalAlignment="Left" Width="40" Height="20" Grid.Column="3" Grid.Row="2" Text="{Binding ElementName=SampleSlider2,Path=Value,UpdateSourceTrigger=PropertyChanged}" TextChanged="gValue_TextChanged" />
+            <TextBox x:Name="bValue" HorizontalAlignment="Left" Width="40" Height="20" Grid.Column="3" Grid.Row="3" Text="{Binding ElementName=SampleSlider3,Path=Value,UpdateSourceTrigger=PropertyChanged}" TextChanged="bValue_TextChanged" />
         </Grid>
     </StackPanel>
 </Window>
