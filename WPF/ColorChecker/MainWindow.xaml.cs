@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +21,20 @@ namespace ColorChecker {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            DataContext = GetColorList();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            colorLabel.Background = Brushes.Black;
+        }
+
+        /// <summary>
+        /// すべての色を取得するメソッド
+        /// </summary>
+        /// <returns></returns>
+        private MyColor[] GetColorList() {
+            return typeof(Colors).GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
 
         public void chengeSlider() {
@@ -27,9 +42,6 @@ namespace ColorChecker {
                 var R = (int)Math.Round(double.Parse(rValue.Text));
                 var G = (int)Math.Round(double.Parse(gValue.Text));
                 var B = (int)Math.Round(double.Parse(bValue.Text));
-                rValue.Text = R.ToString();
-                gValue.Text = G.ToString();
-                bValue.Text = B.ToString();
                 Color color = Color.FromRgb((byte)R, (byte)G, (byte)B);
                 colorLabel.Background = new SolidColorBrush(color);
             }
@@ -46,5 +58,24 @@ namespace ColorChecker {
         private void bValue_TextChanged(object sender, TextChangedEventArgs e) {
             chengeSlider();
         }
+
+        public void changeCombobox() {
+
+        }
+
+        private void uxColorSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            var color = mycolor.Color;
+            var name = mycolor.Name;
+            colorLabel.Background = new SolidColorBrush(color);
+        }
+    }
+
+    /// <summary>
+    /// 色と色名を保持するクラス
+    /// </summary>
+    public class MyColor {
+        public Color Color { get; set; }
+        public string Name { get; set; }
     }
 }
