@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500" Loaded="Window_Loaded">
+        Title="MainWindow" Height="300" Width="700" Loaded="Window_Loaded">
     <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -44,6 +45,8 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <Button Content="STOCK" FontSize="20" Grid.Column="4" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Center" Width="192" Height="35"/>
+            <ListBox x:Name="stockList" Grid.Column="4" HorizontalAlignment="Left" Height="202" Margin="10,13,0,0" Grid.Row="1" Grid.RowSpan="5" VerticalAlignment="Top" Width="192"/>
         </Grid>
     </StackPanel>
 </Window>
