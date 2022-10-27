@@ -64,15 +64,15 @@ namespace ColorChecker {
             chengeSlider();
         }
 
-        public void changeCombobox() {
-
-        }
-
         private void uxColorSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
             var color = mycolor.Color;
             var name = mycolor.Name;
             colorLabel.Background = new SolidColorBrush(color);
+
+            rValue.Text = mycolor.Color.R.ToString();
+            gValue.Text = mycolor.Color.R.ToString();
+            bValue.Text = mycolor.Color.R.ToString();
         }
     }
 

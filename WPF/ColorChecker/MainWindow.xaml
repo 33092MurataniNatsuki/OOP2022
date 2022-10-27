@@ -27,12 +27,12 @@
             <TextBlock  Grid.Column="1" Grid.Row="1" Text="R" FontSize="22" Margin="14,8,13,8"/>
             <TextBlock  Grid.Column="1" Grid.Row="2" Text="G" FontSize="22" Margin="12,8,13,8"/>
             <TextBlock  Grid.Column="1" Grid.Row="3" Text="B" FontSize="22" Margin="14,8,13,8"/>
-            <Slider x:Name="SampleSlider1" IsSnapToTickEnabled="True" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="1" Maximum="255"/>
-            <Slider x:Name="SampleSlider2" IsSnapToTickEnabled="True" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="2" Maximum="255"/>
-            <Slider x:Name="SampleSlider3" IsSnapToTickEnabled="True" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Maximum="255"/>
-            <TextBox x:Name="rValue" Height="20" Grid.Column="3" Grid.Row="1" Text="{Binding ElementName=SampleSlider1,Path=Value,UpdateSourceTrigger=PropertyChanged}" TextChanged="rValue_TextChanged" Margin="0,13,22,12" />
-            <TextBox x:Name="gValue" Height="20" Grid.Column="3" Grid.Row="2" Text="{Binding ElementName=SampleSlider2,Path=Value,UpdateSourceTrigger=PropertyChanged}" TextChanged="gValue_TextChanged" Margin="0,12,22,13" />
-            <TextBox x:Name="bValue" Height="20" Grid.Column="3" Grid.Row="3" Text="{Binding ElementName=SampleSlider3,Path=Value,UpdateSourceTrigger=PropertyChanged}" TextChanged="bValue_TextChanged" Margin="0,13,22,12" />
+            <Slider x:Name="SampleSlider1" TickPlacement="TopLeft" TickFrequency="50" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="1" Maximum="255"/>
+            <Slider x:Name="SampleSlider2" TickPlacement="TopLeft" TickFrequency="50" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="2" Maximum="255"/>
+            <Slider x:Name="SampleSlider3" TickPlacement="TopLeft" TickFrequency="50" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Maximum="255"/>
+            <TextBox x:Name="rValue" Height="20" Grid.Column="3" Grid.Row="1" Text="{Binding ElementName=SampleSlider1,Path=Value,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}" TextChanged="rValue_TextChanged" Margin="0,13,22,12" />
+            <TextBox x:Name="gValue" Height="20" Grid.Column="3" Grid.Row="2" Text="{Binding ElementName=SampleSlider2,Path=Value,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}" TextChanged="gValue_TextChanged" Margin="0,12,22,13" />
+            <TextBox x:Name="bValue" Height="20" Grid.Column="3" Grid.Row="3" Text="{Binding ElementName=SampleSlider3,Path=Value,UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}" TextChanged="bValue_TextChanged" Margin="0,13,22,12" />
             <ComboBox x:Name="uxColorSelect" ItemsSource="{Binding}"  SelectedValue="{Binding Color}"  Grid.Column="2" Grid.Row="4" Height="24" VerticalAlignment="Bottom" VerticalContentAlignment="Center" SelectionChanged="uxColorSelect_SelectionChanged" Margin="0,0,10,0">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
