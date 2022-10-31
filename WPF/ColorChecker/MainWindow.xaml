@@ -45,8 +45,9 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Content="STOCK" FontSize="20" Grid.Column="4" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Center" Width="192" Height="35"/>
+            <Button x:Name="stock" Content="STOCK" FontSize="20" Grid.Column="4" HorizontalAlignment="Center" Margin="10,10,130,0" VerticalAlignment="Center" Width="72" Height="35" Click="stock_Click"/>
             <ListBox x:Name="stockList" Grid.Column="4" HorizontalAlignment="Left" Height="202" Margin="10,13,0,0" Grid.Row="1" Grid.RowSpan="5" VerticalAlignment="Top" Width="192"/>
+            <Button x:Name="delete" Content="DELETE" FontSize="20" Grid.Column="4" HorizontalAlignment="Left" Margin="102,10,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="delete_Click"/>
         </Grid>
     </StackPanel>
 </Window>
