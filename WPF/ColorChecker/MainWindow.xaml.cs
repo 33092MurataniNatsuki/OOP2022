@@ -84,24 +84,28 @@ namespace ColorChecker {
             gValue.Text = mycolor.Color.G.ToString();
             bValue.Text = mycolor.Color.B.ToString();
 
-            stockMyColor.Add(new MyColor() { Color = color, Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
-            stockList.Items.Add(mycolor.Name + " " + "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
+            //stockMyColor.Add(new MyColor() { Color = color, Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
+            //stockList.Items.Add(mycolor.Name + " " + "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
         }
 
         private void stock_Click(object sender, RoutedEventArgs e) {
-            if (uxColorSelect.SelectedItem == null) {
-                stockMyColor.Add(new MyColor() { Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
-                stockList.Items.Add("R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
-            } else {
+            //if (uxColorSelect.SelectedItem == null) {
+                stockMyColor.Add(new MyColor() { Name = "R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text });
+                stockList.Items.Add("R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text);
+            //} else {
                 //stockMyColor.Add(new MyColor() { Color =  , Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
                 //stockList.Items.Add(uxColorSelect.SelectedValue + " " + "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
-            }
+            //}
 
         }
 
         private void delete_Click(object sender, RoutedEventArgs e) {
-            //int sel = (int)stockList.SelectedItem;
-            //stockList.Items.RemoveAt(sel);
+            int sel = stockList.SelectedIndex;
+            stockList.Items.RemoveAt(sel);
+        }
+
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            
         }
     }
 
