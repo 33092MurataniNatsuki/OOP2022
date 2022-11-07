@@ -72,7 +72,10 @@ namespace ColorChecker {
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
-            colorLabel.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
+
+            Color color = Color.FromRgb(r, g, b);
+            colorLabel.Background = new SolidColorBrush(color);
+           // colorLabel.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
         }
 
         private void uxColorSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -84,19 +87,38 @@ namespace ColorChecker {
             gValue.Text = mycolor.Color.G.ToString();
             bValue.Text = mycolor.Color.B.ToString();
 
+            SampleSlider1.Value = mycolor.Color.R;
+            SampleSlider2.Value = mycolor.Color.G;
+            SampleSlider3.Value = mycolor.Color.B;
+
+            setColor();
+
             //stockMyColor.Add(new MyColor() { Color = color, Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
+            //stockList.Items.Add(mycolor.Name);
             //stockList.Items.Add(mycolor.Name + " " + "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
         }
 
         private void stock_Click(object sender, RoutedEventArgs e) {
-            //if (uxColorSelect.SelectedItem == null) {
-                stockMyColor.Add(new MyColor() { Name = "R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text });
-                stockList.Items.Add("R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text);
-            //} else {
-                //stockMyColor.Add(new MyColor() { Color =  , Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
-                //stockList.Items.Add(uxColorSelect.SelectedValue + " " + "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
-            //}
+            //stockMyColor.Add(new MyColor() { Name = "R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text });
+            //stockList.Items.Add("R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text);
+            MyColor mycolor = new MyColor();
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
 
+            mycolor.Color = Color.FromRgb(r, g, b);
+
+            stockMyColor.Add(mycolor);
+
+
+            //テキストボックスのRGB値から色名称があるかチェック
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                                .Where(c => c.Color.R == mycolor.Color.R &&
+                                            c.Color.G == mycolor.Color.G &&
+                                            c.Color.B == mycolor.Color.B).FirstOrDefault();
+
+            stockList.Items.Insert(0,colorName?.Name ?? "R : " + rValue.Text + "G : " + gValue.Text + "B : " + bValue.Text);
+            stockMyColor.Insert(0,mycolor);
         }
 
         private void delete_Click(object sender, RoutedEventArgs e) {
@@ -105,7 +127,13 @@ namespace ColorChecker {
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            
+            if (stockList.SelectedItems.Count == 0)
+                return;
+
+            SampleSlider1.Value = stockMyColor[stockList.SelectedIndex].Color.R;
+            SampleSlider2.Value = stockMyColor[stockList.SelectedIndex].Color.G;
+            SampleSlider3.Value = stockMyColor[stockList.SelectedIndex].Color.B;
+            setColor();
         }
     }
 
