@@ -72,56 +72,50 @@ namespace ColorChecker {
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
-
             Color color = Color.FromRgb(r, g, b);
+
             colorLabel.Background = new SolidColorBrush(color);
            // colorLabel.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
         }
 
         private void uxColorSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
-            var color = mycolor.Color;
-            colorLabel.Background = new SolidColorBrush(color);
+            //var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            //SampleSlider1.Value = mycolor.Color.R;
+            //SampleSlider2.Value = mycolor.Color.G;
+            //SampleSlider3.Value = mycolor.Color.B;
 
-            rValue.Text = mycolor.Color.R.ToString();
-            gValue.Text = mycolor.Color.G.ToString();
-            bValue.Text = mycolor.Color.B.ToString();
-
-            SampleSlider1.Value = mycolor.Color.R;
-            SampleSlider2.Value = mycolor.Color.G;
-            SampleSlider3.Value = mycolor.Color.B;
+            SampleSlider1.Value = ((MyColor)((ComboBox)sender).SelectedItem).Color.R;
+            SampleSlider2.Value = ((MyColor)((ComboBox)sender).SelectedItem).Color.G;
+            SampleSlider3.Value = ((MyColor)((ComboBox)sender).SelectedItem).Color.B;
 
             setColor();
-
-            //stockMyColor.Add(new MyColor() { Color = color, Name = "R:" + rValue.Text + " " + "G:" + gValue.Text + " " + "B:" + bValue.Text });
-            //stockList.Items.Add(mycolor.Name);
-            //stockList.Items.Add(mycolor.Name + " " + "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
         }
 
         private void stock_Click(object sender, RoutedEventArgs e) {
             //stockMyColor.Add(new MyColor() { Name = "R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text });
             //stockList.Items.Add("R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text);
-            MyColor mycolor = new MyColor();
+            MyColor stColor = new MyColor();
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
-
-            mycolor.Color = Color.FromRgb(r, g, b);
-
-            stockMyColor.Add(mycolor);
-
-
+            stColor.Color = Color.FromRgb(r, g, b);
+            
             //テキストボックスのRGB値から色名称があるかチェック
             var colorName = ((IEnumerable<MyColor>)DataContext)
-                                .Where(c => c.Color.R == mycolor.Color.R &&
-                                            c.Color.G == mycolor.Color.G &&
-                                            c.Color.B == mycolor.Color.B).FirstOrDefault();
+                                .Where(c => c.Color.R == stColor.Color.R &&
+                                            c.Color.G == stColor.Color.G &&
+                                            c.Color.B == stColor.Color.B).FirstOrDefault();
 
-            stockList.Items.Insert(0,colorName?.Name ?? "R : " + rValue.Text + "G : " + gValue.Text + "B : " + bValue.Text);
-            stockMyColor.Insert(0,mycolor);
+            //Insert = コレクションの後ろに追加
+            //Add = コレクションの前に追加
+            stockList.Items.Insert(0,colorName?.Name ?? "R : " + r + "G : " + g + "B : " + b);
+            stockMyColor.Insert(0,stColor);
         }
 
         private void delete_Click(object sender, RoutedEventArgs e) {
+            if (stockList.SelectedItems.Count == 0)
+                return;
+
             int sel = stockList.SelectedIndex;
             stockList.Items.RemoveAt(sel);
         }
