@@ -20,7 +20,7 @@ namespace ColorChecker {
     /// </summary>
     public partial class MainWindow : Window {
 
-        List<MyColor> stockMyColor = new List<MyColor>();
+        List<MyColor> colorList = new List<MyColor>();
 
         public MainWindow() {
             InitializeComponent();
@@ -108,25 +108,27 @@ namespace ColorChecker {
 
             //Insert = コレクションの後ろに追加
             //Add = コレクションの前に追加
-            stockList.Items.Insert(0,colorName?.Name ?? "R : " + r + "G : " + g + "B : " + b);
-            stockMyColor.Insert(0,stColor);
+            stockList.Items.Insert(0,colorName?.Name ?? "R : " + r + " G : " + g + " B : " + b);
+            colorList.Insert(0,stColor);
         }
 
         private void delete_Click(object sender, RoutedEventArgs e) {
-            if (stockList.SelectedItems.Count == 0)
+            var dellIndex = stockList.SelectedIndex;
+
+            if (dellIndex == -1)
                 return;
 
-            int sel = stockList.SelectedIndex;
-            stockList.Items.RemoveAt(sel);
+            stockList.Items.RemoveAt(dellIndex);
+            colorList.RemoveAt(dellIndex);
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (stockList.SelectedItems.Count == 0)
                 return;
 
-            SampleSlider1.Value = stockMyColor[stockList.SelectedIndex].Color.R;
-            SampleSlider2.Value = stockMyColor[stockList.SelectedIndex].Color.G;
-            SampleSlider3.Value = stockMyColor[stockList.SelectedIndex].Color.B;
+            SampleSlider1.Value = colorList[stockList.SelectedIndex].Color.R;
+            SampleSlider2.Value = colorList[stockList.SelectedIndex].Color.G;
+            SampleSlider3.Value = colorList[stockList.SelectedIndex].Color.B;
             setColor();
         }
     }
