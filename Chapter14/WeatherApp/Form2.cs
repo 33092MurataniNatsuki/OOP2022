@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +14,54 @@ using System.Windows.Forms;
 
 namespace WeatherApp {
     public partial class Form2 : Form {
+        public string transfer_string;
+
+
+        public Form1 form1;
+
+        private void Form2_Load(object sender, EventArgs e) {
+            //エリアコードのリスト
+            var list = new List<string>();
+            var areaCode = new string[] { "011000","012000","013000","014100","015000","016000","017000","020000",
+                                          "030000","040000","050000","060000","070000","080000","090000","100000",
+                                          "110000","120000","130000","140000","190000","200000","210000","220000",
+                                          "230000","240000","150000","160000","170000","180000","250000","260000",
+                                          "270000","280000","290000","300000","310000","320000","330000","340000",
+                                          "360000","370000","380000","390000","350000","400000","410000","420000",
+                                          "430000","440000","450000","460040","460100","471000","472000","473000","474000",
+            };
+            list.AddRange(areaCode);
+
+            tbTihou.Text = transfer_string;
+
+            var wc = new WebClient() {
+                Encoding = Encoding.UTF8
+            };
+
+            for (int i = 0; i < cbArea.SelectedIndex; i++) {
+                if (tbTihou.Text == cbArea.Items.ToString()) {
+                    var dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/" + areaCode[i] + ".json");
+                    getInfo(dString);
+
+                    var dString1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/" + areaCode[i] + ".json");
+                    var json2 = JsonConvert.DeserializeObject<Class1[]>(dString1);
+                    tbTodayWeather.Text = json2[0].timeSeries[0].areas[0].weathers[0];
+                    tbTomorrowWeather.Text = json2[0].timeSeries[0].areas[0].weathers[1];
+                    tbMaxTemp.Text = json2[1].tempAverage.areas[0].max;
+                    tbMinTemp.Text = json2[1].tempAverage.areas[0].min;
+
+                    var todayMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[0] + ".png";
+                    pbWeatherToday.ImageLocation = todayMark;
+                    var TomorrowMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[1] + ".png";
+                    pbWeatherTomorrow.ImageLocation = TomorrowMark;
+
+                }
+            }
+        }
+
         public Form2() {
             InitializeComponent();
+
 
             //地方のリスト
             cbArea.Items.AddRange(new string[] { "宗谷地方", "上川・留萌地方", "網走・北見・紋別地方",
@@ -32,6 +80,8 @@ namespace WeatherApp {
 
             this.Controls.Add(cbArea);
             this.Text = "Form1";
+
+
         }
 
         private void btWeatherGet_Click_1(object sender, EventArgs e) {
@@ -51,33 +101,26 @@ namespace WeatherApp {
             };
             list.AddRange(areaCode);
 
-            //areaCodeを使ってURLを作成
             for (int i = 0; i < areaCode.Length; i++) {
                 if (cbArea.SelectedIndex == i) {
                     var dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/" + areaCode[i] + ".json");
                     getInfo(dString);
+
+                    var dString1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/" + areaCode[i] + ".json");
+                    var json2 = JsonConvert.DeserializeObject<Class1[]>(dString1);
+                    tbTodayWeather.Text = json2[0].timeSeries[0].areas[0].weathers[0];
+                    tbTomorrowWeather.Text = json2[0].timeSeries[0].areas[0].weathers[1];
+                    tbMaxTemp.Text = json2[1].tempAverage.areas[0].max;
+                    tbMinTemp.Text = json2[1].tempAverage.areas[0].min;
+
+                    var todayMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[0] + ".png";
+                    pbWeatherToday.ImageLocation = todayMark;
+                    var TomorrowMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[1] + ".png";
+                    pbWeatherTomorrow.ImageLocation = TomorrowMark;
+
+                    
                 }
             }
-
-            var dString1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/011000.json");
-            var json2 = JsonConvert.DeserializeObject<Class1[]>(dString1);
-            tbTodayWeather.Text = json2[0].timeSeries[0].areas[0].weathers[0];
-            tbTomorrowWeather.Text = json2[0].timeSeries[0].areas[0].weathers[1];
-
-            //var list2 = new List<string>();
-            //var weatherPic = new string[] { "100", "101", "102", };
-            //list2.AddRange(weatherPic);
-            //foreach (var item in list2) {
-            //    var a = item.Length;
-            //    for (int i = 0; i < areaCode.Length; i++) {
-            //        if (cbArea.SelectedIndex == i) {
-            //            var weatehrCode = json2[0].timeSeries[0].areas[0].weatherCodes[0];
-            //            if (a.ToString() == weatehrCode) {
-            //                pbWeather.Image = Image.FromFile("https://www.jma.go.jp/bosai/forecast/img/" +areaCode[i] + ".svg");
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         private void getInfo(string dString) {
@@ -87,5 +130,7 @@ namespace WeatherApp {
             tbTargetArea.Text = json.targetArea;
             tbText.Text = json.text;
         }
+
+
     }
 }
