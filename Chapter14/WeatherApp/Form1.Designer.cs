@@ -37,17 +37,22 @@ namespace WeatherApp {
             this.btKyusyu = new System.Windows.Forms.Button();
             this.btOkinawa = new System.Windows.Forms.Button();
             this.tbTihoumei = new System.Windows.Forms.TextBox();
+            this.btWeatherMap = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbMap)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(484, 601);
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(414, 601);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Form2を表示";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "全国を表示";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pbMap
@@ -68,6 +73,7 @@ namespace WeatherApp {
             this.btKanto.TabIndex = 4;
             this.btKanto.Text = "関東甲信";
             this.btKanto.UseVisualStyleBackColor = true;
+            this.btKanto.Click += new System.EventHandler(this.btKanto_Click);
             // 
             // btTokai
             // 
@@ -78,6 +84,7 @@ namespace WeatherApp {
             this.btTokai.TabIndex = 5;
             this.btTokai.Text = "東海";
             this.btTokai.UseVisualStyleBackColor = true;
+            this.btTokai.Click += new System.EventHandler(this.btTokai_Click);
             // 
             // btHokuriku
             // 
@@ -88,6 +95,7 @@ namespace WeatherApp {
             this.btHokuriku.TabIndex = 6;
             this.btHokuriku.Text = "北陸";
             this.btHokuriku.UseVisualStyleBackColor = true;
+            this.btHokuriku.Click += new System.EventHandler(this.btHokuriku_Click);
             // 
             // btTohoku
             // 
@@ -98,16 +106,19 @@ namespace WeatherApp {
             this.btTohoku.TabIndex = 3;
             this.btTohoku.Text = "東北";
             this.btTohoku.UseVisualStyleBackColor = true;
+            this.btTohoku.Click += new System.EventHandler(this.btTohoku_Click);
             // 
             // btHokkaido
             // 
+            this.btHokkaido.BackColor = System.Drawing.SystemColors.Control;
             this.btHokkaido.Font = new System.Drawing.Font("HGS創英角ｺﾞｼｯｸUB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btHokkaido.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btHokkaido.Location = new System.Drawing.Point(484, 128);
             this.btHokkaido.Name = "btHokkaido";
             this.btHokkaido.Size = new System.Drawing.Size(72, 35);
             this.btHokkaido.TabIndex = 2;
             this.btHokkaido.Text = "北海道";
-            this.btHokkaido.UseVisualStyleBackColor = true;
+            this.btHokkaido.UseVisualStyleBackColor = false;
             this.btHokkaido.Click += new System.EventHandler(this.btHokkaido_Click);
             // 
             // btKinki
@@ -119,6 +130,7 @@ namespace WeatherApp {
             this.btKinki.TabIndex = 7;
             this.btKinki.Text = "近畿";
             this.btKinki.UseVisualStyleBackColor = true;
+            this.btKinki.Click += new System.EventHandler(this.btKinki_Click);
             // 
             // btTyugoku
             // 
@@ -129,6 +141,7 @@ namespace WeatherApp {
             this.btTyugoku.TabIndex = 7;
             this.btTyugoku.Text = "中国";
             this.btTyugoku.UseVisualStyleBackColor = true;
+            this.btTyugoku.Click += new System.EventHandler(this.btTyugoku_Click);
             // 
             // btSikoku
             // 
@@ -139,6 +152,7 @@ namespace WeatherApp {
             this.btSikoku.TabIndex = 7;
             this.btSikoku.Text = "四国";
             this.btSikoku.UseVisualStyleBackColor = true;
+            this.btSikoku.Click += new System.EventHandler(this.btSikoku_Click);
             // 
             // btKyusyu
             // 
@@ -149,6 +163,7 @@ namespace WeatherApp {
             this.btKyusyu.TabIndex = 7;
             this.btKyusyu.Text = "九州";
             this.btKyusyu.UseVisualStyleBackColor = true;
+            this.btKyusyu.Click += new System.EventHandler(this.btKyusyu_Click);
             // 
             // btOkinawa
             // 
@@ -159,19 +174,47 @@ namespace WeatherApp {
             this.btOkinawa.TabIndex = 7;
             this.btOkinawa.Text = "沖縄";
             this.btOkinawa.UseVisualStyleBackColor = true;
+            this.btOkinawa.Click += new System.EventHandler(this.btOkinawa_Click);
             // 
             // tbTihoumei
             // 
-            this.tbTihoumei.Location = new System.Drawing.Point(356, 603);
+            this.tbTihoumei.Location = new System.Drawing.Point(153, 603);
             this.tbTihoumei.Name = "tbTihoumei";
-            this.tbTihoumei.Size = new System.Drawing.Size(100, 19);
+            this.tbTihoumei.Size = new System.Drawing.Size(255, 19);
             this.tbTihoumei.TabIndex = 8;
+            // 
+            // btWeatherMap
+            // 
+            this.btWeatherMap.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btWeatherMap.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btWeatherMap.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btWeatherMap.Location = new System.Drawing.Point(558, 475);
+            this.btWeatherMap.Name = "btWeatherMap";
+            this.btWeatherMap.Size = new System.Drawing.Size(37, 149);
+            this.btWeatherMap.TabIndex = 9;
+            this.btWeatherMap.Text = "天気図";
+            this.btWeatherMap.UseVisualStyleBackColor = false;
+            this.btWeatherMap.Click += new System.EventHandler(this.btWeatherMap_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(27, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(288, 64);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "天気予報";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 631);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btWeatherMap);
             this.Controls.Add(this.tbTihoumei);
             this.Controls.Add(this.btKyusyu);
             this.Controls.Add(this.btOkinawa);
@@ -209,6 +252,8 @@ namespace WeatherApp {
         private System.Windows.Forms.Button btKyusyu;
         private System.Windows.Forms.Button btOkinawa;
         private System.Windows.Forms.TextBox tbTihoumei;
+        private System.Windows.Forms.Button btWeatherMap;
+        private System.Windows.Forms.Label label1;
     }
 }
 

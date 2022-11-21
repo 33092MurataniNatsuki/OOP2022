@@ -46,6 +46,7 @@ namespace WeatherApp {
             this.label8 = new System.Windows.Forms.Label();
             this.tbTihou = new System.Windows.Forms.TextBox();
             this.pbWeatherToday = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherTomorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherToday)).BeginInit();
             this.SuspendLayout();
@@ -125,6 +126,7 @@ namespace WeatherApp {
             // 
             // tbText
             // 
+            this.tbText.BackColor = System.Drawing.SystemColors.Window;
             this.tbText.Location = new System.Drawing.Point(129, 176);
             this.tbText.Multiline = true;
             this.tbText.Name = "tbText";
@@ -156,7 +158,7 @@ namespace WeatherApp {
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(129, 38);
             this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(121, 20);
+            this.cbArea.Size = new System.Drawing.Size(158, 20);
             this.cbArea.TabIndex = 20;
             // 
             // btWeatherGet
@@ -231,9 +233,9 @@ namespace WeatherApp {
             // 
             // tbTihou
             // 
-            this.tbTihou.Location = new System.Drawing.Point(342, 39);
+            this.tbTihou.Location = new System.Drawing.Point(-1, 0);
             this.tbTihou.Name = "tbTihou";
-            this.tbTihou.Size = new System.Drawing.Size(100, 19);
+            this.tbTihou.Size = new System.Drawing.Size(143, 19);
             this.tbTihou.TabIndex = 33;
             // 
             // pbWeatherToday
@@ -245,11 +247,22 @@ namespace WeatherApp {
             this.pbWeatherToday.TabIndex = 27;
             this.pbWeatherToday.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(499, 523);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "前画面へ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 558);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbTihou);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbMinTemp);
@@ -305,5 +318,6 @@ namespace WeatherApp {
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox tbTihou;
         private System.Windows.Forms.PictureBox pbWeatherToday;
+        private System.Windows.Forms.Button button1;
     }
 }
