@@ -35,24 +35,20 @@ namespace WeatherApp {
 
         private void button1_Click(object sender, EventArgs e) {
             Rootobject2 json3 = getPb();
-
             pbWeatherMap.ImageLocation = "https://www.jma.go.jp/bosai/weather_map/data/png/" + json3.near.now[0];
         }
 
         private void btJapanSirokuro_Click(object sender, EventArgs e) {
             Rootobject2 json3 = getPb();
-
             pbWeatherMap.ImageLocation = "https://www.jma.go.jp/bosai/weather_map/data/png/" + json3.near_monochrome.now[0];
         }
         private void btAsiaColor_Click(object sender, EventArgs e) {
             Rootobject2 json3 = getPb();
-
             pbWeatherMap.ImageLocation = "https://www.jma.go.jp/bosai/weather_map/data/png/" + json3.asia.now[0];
         }
 
         private void btAsiaSirokuro_Click(object sender, EventArgs e) {
             Rootobject2 json3 = getPb();
-
             pbWeatherMap.ImageLocation = "https://www.jma.go.jp/bosai/weather_map/data/png/" + json3.asia_monochrome.now[0];
         }
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -19,9 +20,9 @@ namespace WeatherApp {
 
         private void Form2_Load(object sender, EventArgs e) {
 
-            tbTihou.Text = transfer_string;
+            lbTihou.Text = transfer_string;
 
-            if (tbTihou.Text == "北海道地方") {
+            if (lbTihou.Text == "北海道地方") {
                 cbArea.Items.AddRange(new string[] { "宗谷地方", "上川・留萌地方", "網走・北見・紋別地方",
                                                 "釧路・根室地方", "胆振・日高地方",
                                                 "石狩・空知・後志地方", "渡島・檜山地方",
@@ -31,7 +32,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "東北地方") {
+            if (lbTihou.Text == "東北地方") {
                 cbArea.Items.AddRange(new string[] { "青森県","岩手県", "宮城県", "秋田県","山形県", "福島県",
                 });
 
@@ -39,7 +40,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "関東甲信地方") {
+            if (lbTihou.Text == "関東甲信地方") {
                 cbArea.Items.AddRange(new string[] { "茨城県","栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県","山梨県", "長野県",
                 });
 
@@ -47,7 +48,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "東海地方") {
+            if (lbTihou.Text == "東海地方") {
                 cbArea.Items.AddRange(new string[] { "岐阜県", "静岡県", "愛知県", "三重県",
                 });
 
@@ -55,7 +56,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "北陸地方") {
+            if (lbTihou.Text == "北陸地方") {
                 cbArea.Items.AddRange(new string[] { "新潟県", "富山県", "石川県", "福井県",
                 });
 
@@ -63,7 +64,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "中国地方(山口県を除く)") {
+            if (lbTihou.Text == "中国地方(山口県を除く)") {
                 cbArea.Items.AddRange(new string[] { "滋賀県", "京都府","大阪府", "兵庫県", "奈良県", "和歌山県",
                 });
 
@@ -71,7 +72,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "中国") {
+            if (lbTihou.Text == "中国") {
                 cbArea.Items.AddRange(new string[] { "鳥取県", "島根県","岡山県", "広島県",
                 });
 
@@ -79,7 +80,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "四国地方") {
+            if (lbTihou.Text == "四国地方") {
                 cbArea.Items.AddRange(new string[] { "徳島県", "香川県", "愛媛県", "高知県",
                 });
 
@@ -87,7 +88,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "九州地方(山口県を含む)") {
+            if (lbTihou.Text == "九州地方(山口県を含む)") {
                 cbArea.Items.AddRange(new string[] { "山口県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県","宮崎県", "奄美地方", "鹿児島県（奄美地方除く)"
                 });
 
@@ -95,7 +96,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "沖縄地方") {
+            if (lbTihou.Text == "沖縄地方") {
                 cbArea.Items.AddRange(new string[] { "沖縄本島地方","大東島地方", "宮古島地方", "八重山地方",
                 });
 
@@ -103,7 +104,7 @@ namespace WeatherApp {
                 this.Text = "Form1";
             }
 
-            if (tbTihou.Text == "全国") {
+            if (lbTihou.Text == "全国") {
                 //地方のリスト
                 cbArea.Items.AddRange(new string[] { "宗谷地方", "上川・留萌地方", "網走・北見・紋別地方",
                                                     "釧路・根室地方", "胆振・日高地方",
@@ -122,6 +123,12 @@ namespace WeatherApp {
                 this.Controls.Add(cbArea);
                 this.Text = "Form1";
             }
+
+            var now = System.DateTime.Now;
+            today.Text = now.ToString("MM/dd(ddd)");
+
+            var tomorrow = System.DateTime.Today.AddDays(1);
+            tomo.Text = tomorrow.ToString("MM/dd(ddd)");
         }
 
         public Form2() {
@@ -152,10 +159,12 @@ namespace WeatherApp {
 
                     var dString1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/" + areaCode[i] + ".json");
                     var json2 = JsonConvert.DeserializeObject<Class1[]>(dString1);
-                    tbTodayWeather.Text = json2[0].timeSeries[0].areas[0].weathers[0];
-                    tbTomorrowWeather.Text = json2[0].timeSeries[0].areas[0].weathers[1];
-                    tbMaxTemp.Text = json2[1].tempAverage.areas[0].max;
-                    tbMinTemp.Text = json2[1].tempAverage.areas[0].min;
+                    lbTodayWeather.Text = json2[0].timeSeries[0].areas[0].weathers[0];
+                    lbTomorrowWeather.Text = json2[0].timeSeries[0].areas[0].weathers[1];
+                    lbMaxTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMax[1];
+                    lbMinTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMin[1];
+                    lbMaxTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMax[2];
+                    lbMinTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMin[2];
 
                     var todayMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[0] + ".png";
                     pbWeatherToday.ImageLocation = todayMark;
@@ -169,21 +178,10 @@ namespace WeatherApp {
 
         private void getInfo(string dString) {
             var json = JsonConvert.DeserializeObject<Rootobject>(dString);
-            tbpublishingOffice.Text = json.publishingOffice;
-            tbreportDatetime.Text = json.reportDatetime.ToString();
-            tbTargetArea.Text = json.targetArea;
+            lbpublishingOffice.Text = json.publishingOffice;
+            lbreportDatetime.Text = json.reportDatetime.ToString();
+            lbTargetArea.Text = json.targetArea;
             tbText.Text = json.text;
-        }
-
-
-        //これダメ
-        private void button1_Click(object sender, EventArgs e) {
-            var form = new Form1();
-            this.Hide();
-
-            if (form.ShowDialog() == DialogResult.Cancel) {
-                this.Show();
-            }
         }
     }
 }
