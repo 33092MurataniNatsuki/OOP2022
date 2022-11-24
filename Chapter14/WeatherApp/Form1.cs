@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WeatherApp {
-    public partial class Form1 : Form {
+    public partial class 天気予報 : Form {
         Form2 form2;
 
-        public Form1() {
+        public 天気予報() {
             InitializeComponent();
         }
 
@@ -39,7 +39,7 @@ namespace WeatherApp {
             
         }
         private void btWeatherMap_Click(object sender, EventArgs e) {
-            var form = new Form3();
+            var form = new 天気図();
             this.Hide();
 
             if (form.ShowDialog() == DialogResult.Cancel) {

@@ -1,6 +1,6 @@
 ﻿
 namespace WeatherApp {
-    partial class Form3 {
+    partial class 天気図 {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -91,7 +91,7 @@ namespace WeatherApp {
             this.btAsiaSirokuro.UseVisualStyleBackColor = true;
             this.btAsiaSirokuro.Click += new System.EventHandler(this.btAsiaSirokuro_Click);
             // 
-            // Form3
+            // 天気図
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,8 +102,8 @@ namespace WeatherApp {
             this.Controls.Add(this.btJapanSirokuro);
             this.Controls.Add(this.btJapanColor);
             this.Controls.Add(this.pbWeatherMap);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "天気図";
+            this.Text = "天気図";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherMap)).EndInit();
             this.ResumeLayout(false);

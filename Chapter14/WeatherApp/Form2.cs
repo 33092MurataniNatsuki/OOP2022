@@ -16,7 +16,7 @@ namespace WeatherApp {
         public string transfer_string;
 
 
-        public Form1 form1;
+        public 天気予報 form1;
 
         private void Form2_Load(object sender, EventArgs e) {
 
@@ -175,8 +175,6 @@ namespace WeatherApp {
 
                     var dString1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/" + areaCode[i] + ".json");
                     var json2 = JsonConvert.DeserializeObject<Class1[]>(dString1);
-                    lbTodayWeather.Text = json2[0].timeSeries[0].areas[0].weathers[0];
-                    lbTomorrowWeather.Text = json2[0].timeSeries[0].areas[0].weathers[1];
                     lbMaxTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMax[1];
                     lbMinTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMin[1];
                     lbMaxTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMax[2];

@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WeatherApp {
-    public partial class Form3 : Form {
-        public Form3() {
+    public partial class 天気図 : Form {
+        public 天気図() {
             InitializeComponent();
         }
 

@@ -36,6 +36,7 @@ namespace WeatherApp {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.tomo5 = new System.Windows.Forms.Label();
             this.tomo4 = new System.Windows.Forms.Label();
@@ -48,16 +49,10 @@ namespace WeatherApp {
             this.label9 = new System.Windows.Forms.Label();
             this.lbTargetArea = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             this.pbWeatherTomorrow5 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.pbWeatherTomorrow4 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.pbWeatherTomorrow3 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.pbWeatherTomorrow2 = new System.Windows.Forms.PictureBox();
-            this.lbTomorrowWeather = new System.Windows.Forms.Label();
-            this.lbTodayWeather = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbMaxT5 = new System.Windows.Forms.Label();
@@ -81,7 +76,6 @@ namespace WeatherApp {
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.tbText = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherTomorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherToday)).BeginInit();
             this.panel2.SuspendLayout();
@@ -223,6 +217,15 @@ namespace WeatherApp {
             this.panel4.Size = new System.Drawing.Size(1046, 64);
             this.panel4.TabIndex = 42;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(545, 8);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "明後日";
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -327,16 +330,10 @@ namespace WeatherApp {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.pbWeatherTomorrow5);
-            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pbWeatherTomorrow4);
-            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.pbWeatherTomorrow3);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pbWeatherTomorrow2);
-            this.panel1.Controls.Add(this.lbTomorrowWeather);
-            this.panel1.Controls.Add(this.lbTodayWeather);
             this.panel1.Controls.Add(this.lbTargetArea);
             this.panel1.Controls.Add(this.pbWeatherToday);
             this.panel1.Controls.Add(this.pbWeatherTomorrow);
@@ -344,15 +341,6 @@ namespace WeatherApp {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1046, 134);
             this.panel1.TabIndex = 44;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(920, 117);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 12);
-            this.label13.TabIndex = 53;
-            this.label13.Text = "label5";
             // 
             // pbWeatherTomorrow5
             // 
@@ -363,15 +351,6 @@ namespace WeatherApp {
             this.pbWeatherTomorrow5.TabIndex = 52;
             this.pbWeatherTomorrow5.TabStop = false;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(792, 117);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 12);
-            this.label12.TabIndex = 51;
-            this.label12.Text = "label5";
-            // 
             // pbWeatherTomorrow4
             // 
             this.pbWeatherTomorrow4.Location = new System.Drawing.Point(781, 19);
@@ -380,15 +359,6 @@ namespace WeatherApp {
             this.pbWeatherTomorrow4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbWeatherTomorrow4.TabIndex = 50;
             this.pbWeatherTomorrow4.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(664, 116);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 12);
-            this.label11.TabIndex = 49;
-            this.label11.Text = "label5";
             // 
             // pbWeatherTomorrow3
             // 
@@ -399,15 +369,6 @@ namespace WeatherApp {
             this.pbWeatherTomorrow3.TabIndex = 48;
             this.pbWeatherTomorrow3.TabStop = false;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(536, 117);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 12);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "label5";
-            // 
             // pbWeatherTomorrow2
             // 
             this.pbWeatherTomorrow2.Location = new System.Drawing.Point(525, 19);
@@ -416,24 +377,6 @@ namespace WeatherApp {
             this.pbWeatherTomorrow2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbWeatherTomorrow2.TabIndex = 46;
             this.pbWeatherTomorrow2.TabStop = false;
-            // 
-            // lbTomorrowWeather
-            // 
-            this.lbTomorrowWeather.AutoSize = true;
-            this.lbTomorrowWeather.Location = new System.Drawing.Point(408, 116);
-            this.lbTomorrowWeather.Name = "lbTomorrowWeather";
-            this.lbTomorrowWeather.Size = new System.Drawing.Size(35, 12);
-            this.lbTomorrowWeather.TabIndex = 45;
-            this.lbTomorrowWeather.Text = "label5";
-            // 
-            // lbTodayWeather
-            // 
-            this.lbTodayWeather.AutoSize = true;
-            this.lbTodayWeather.Location = new System.Drawing.Point(275, 116);
-            this.lbTodayWeather.Name = "lbTodayWeather";
-            this.lbTodayWeather.Size = new System.Drawing.Size(35, 12);
-            this.lbTodayWeather.TabIndex = 44;
-            this.lbTodayWeather.Text = "label5";
             // 
             // label6
             // 
@@ -675,15 +618,6 @@ namespace WeatherApp {
             this.tbText.Size = new System.Drawing.Size(927, 76);
             this.tbText.TabIndex = 23;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(545, 8);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 12);
-            this.label14.TabIndex = 53;
-            this.label14.Text = "明後日";
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -698,7 +632,7 @@ namespace WeatherApp {
             this.Controls.Add(this.cbArea);
             this.Controls.Add(this.btWeatherGet);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "天気";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherTomorrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeatherToday)).EndInit();
@@ -738,8 +672,6 @@ namespace WeatherApp {
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbTargetArea;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbTomorrowWeather;
-        private System.Windows.Forms.Label lbTodayWeather;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
@@ -755,13 +687,9 @@ namespace WeatherApp {
         private System.Windows.Forms.Label lbMaxTempTomorrow;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbMinTempTomorrow;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pbWeatherTomorrow5;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pbWeatherTomorrow4;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pbWeatherTomorrow3;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pbWeatherTomorrow2;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label tomo5;

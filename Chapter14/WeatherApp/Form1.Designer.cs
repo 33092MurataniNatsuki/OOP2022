@@ -1,6 +1,6 @@
 ﻿
 namespace WeatherApp {
-    partial class Form1 {
+    partial class 天気予報 {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
@@ -208,7 +208,7 @@ namespace WeatherApp {
             this.label1.TabIndex = 10;
             this.label1.Text = "天気予報";
             // 
-            // Form1
+            // 天気予報
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -228,8 +228,8 @@ namespace WeatherApp {
             this.Controls.Add(this.btHokkaido);
             this.Controls.Add(this.pbMap);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "天気予報";
+            this.Text = "天気予報";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbMap)).EndInit();
             this.ResumeLayout(false);
