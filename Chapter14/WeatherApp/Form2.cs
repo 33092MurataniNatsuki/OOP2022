@@ -129,6 +129,22 @@ namespace WeatherApp {
 
             var tomorrow = System.DateTime.Today.AddDays(1);
             tomo.Text = tomorrow.ToString("MM/dd(ddd)");
+
+            DateTime dt1 = DateTime.Now;
+            dt1 = dt1.AddDays(2);
+            tomo2.Text = dt1.ToString("MM/dd(ddd)");
+
+            DateTime dt2 = DateTime.Now;
+            dt2 = dt2.AddDays(3);
+            tomo3.Text = dt2.ToString("MM/dd(ddd)");
+
+            DateTime dt3 = DateTime.Now;
+            dt3 = dt3.AddDays(4);
+            tomo4.Text = dt3.ToString("MM/dd(ddd)");
+
+            DateTime dt4 = DateTime.Now;
+            dt4 = dt4.AddDays(5);
+            tomo5.Text = dt4.ToString("MM/dd(ddd)");
         }
 
         public Form2() {
@@ -165,11 +181,27 @@ namespace WeatherApp {
                     lbMinTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMin[1];
                     lbMaxTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMax[2];
                     lbMinTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMin[2];
+                    lbMaxT2.Text = json2[1].timeSeries[1].areas[0].tempsMax[3];
+                    lbMinT2.Text = json2[1].timeSeries[1].areas[0].tempsMin[3];
+                    lbMaxT3.Text = json2[1].timeSeries[1].areas[0].tempsMax[4];
+                    lbMinT3.Text = json2[1].timeSeries[1].areas[0].tempsMin[4];
+                    lbMaxT4.Text = json2[1].timeSeries[1].areas[0].tempsMax[5];
+                    lbMinT4.Text = json2[1].timeSeries[1].areas[0].tempsMin[5];
+                    lbMaxT5.Text = json2[1].timeSeries[1].areas[0].tempsMax[6];
+                    lbMinT5.Text = json2[1].timeSeries[1].areas[0].tempsMin[6];
 
                     var todayMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[0] + ".png";
                     pbWeatherToday.ImageLocation = todayMark;
                     var TomorrowMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[1] + ".png";
                     pbWeatherTomorrow.ImageLocation = TomorrowMark;
+                    var TomorrowMark2 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[2] + ".png";
+                    pbWeatherTomorrow2.ImageLocation = TomorrowMark2;
+                    var TomorrowMark3 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[3] + ".png";
+                    pbWeatherTomorrow3.ImageLocation = TomorrowMark3;
+                    var TomorrowMark4 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[4] + ".png";
+                    pbWeatherTomorrow4.ImageLocation = TomorrowMark4;
+                    var TomorrowMark5 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[5] + ".png";
+                    pbWeatherTomorrow5.ImageLocation = TomorrowMark5;
 
 
                 }

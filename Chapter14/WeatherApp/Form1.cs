@@ -20,17 +20,23 @@ namespace WeatherApp {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            string url = "https://th.bing.com/th/id/R.d50785b76cbf71572a5e69388e4c90ef?rik=hnX1cBlTqgF7xQ&riu=http%3a%2f%2fwww.kokusaikuyu.co.jp%2fmap%2fmap.png&ehk=BTWmvfel%2bVy6tqj4%2b0TeOOJTxG4IfXFm2G20bo4gInA%3d&risl=&pid=ImgRaw&r=0";
-            WebClient webClient = new WebClient();
-            Stream stream = webClient.OpenRead(url);
+            try {
+                string url = "https://th.bing.com/th/id/R.d50785b76cbf71572a5e69388e4c90ef?rik=hnX1cBlTqgF7xQ&riu=http%3a%2f%2fwww.kokusaikuyu.co.jp%2fmap%2fmap.png&ehk=BTWmvfel%2bVy6tqj4%2b0TeOOJTxG4IfXFm2G20bo4gInA%3d&risl=&pid=ImgRaw&r=0";
+                WebClient webClient = new WebClient();
+                Stream stream = webClient.OpenRead(url);
 
-            // 画像ファイルをBitmap型として読み込む
-            Bitmap bitmap = new Bitmap(stream);
-            stream.Close();
+                // 画像ファイルをBitmap型として読み込む
+                Bitmap bitmap = new Bitmap(stream);
+                stream.Close();
 
-            // 画像を表示する
-            pbMap.Image = bitmap;
-
+                // 画像を表示する
+                pbMap.Image = bitmap;
+            }
+            catch (WebException ex) {
+                MessageBox.Show("error" + ex);
+                Application.Exit();
+            }
+            
         }
         private void btWeatherMap_Click(object sender, EventArgs e) {
             var form = new Form3();
