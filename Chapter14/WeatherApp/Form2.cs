@@ -176,7 +176,7 @@ namespace WeatherApp {
                     var dString1 = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/" + areaCode[i] + ".json");
                     var json2 = JsonConvert.DeserializeObject<Class1[]>(dString1);
                     lbMaxTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMax[1];
-                    lbMinTempToday.Text = json2[1].timeSeries[1].areas[0].tempsMin[1];
+                    lbMinTempToday.Text = "-";
                     lbMaxTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMax[2];
                     lbMinTempTomorrow.Text = json2[1].timeSeries[1].areas[0].tempsMin[2];
                     lbMaxT2.Text = json2[1].timeSeries[1].areas[0].tempsMax[3];
