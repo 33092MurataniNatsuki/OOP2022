@@ -188,11 +188,11 @@ namespace WeatherApp {
                     lbMaxT5.Text = json2[1].timeSeries[1].areas[0].tempsMax[6];
                     lbMinT5.Text = json2[1].timeSeries[1].areas[0].tempsMin[6];
 
-                    var todayMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[0] + ".png";
+                    var todayMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[0] + ".png";
                     pbWeatherToday.ImageLocation = todayMark;
-                    var TomorrowMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[1] + ".png";
+                    var TomorrowMark = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[1] + ".png";
                     pbWeatherTomorrow.ImageLocation = TomorrowMark;
-                    var TomorrowMark2 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[0].timeSeries[0].areas[0].weatherCodes[2] + ".png";
+                    var TomorrowMark2 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[2] + ".png";
                     pbWeatherTomorrow2.ImageLocation = TomorrowMark2;
                     var TomorrowMark3 = "https://www.jma.go.jp/bosai/forecast/img/" + json2[1].timeSeries[0].areas[0].weatherCodes[3] + ".png";
                     pbWeatherTomorrow3.ImageLocation = TomorrowMark3;
